@@ -1,0 +1,53 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/**
+ * Created by phatnguyen on 10/30/16.
+ */
+var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+//import { FormsModule }    from '@angular/forms';
+var header_component_1 = require('app/templates/header/header.component');
+var nav_bar_component_1 = require('app/templates/nav-bar/nav-bar.component');
+var top_component_1 = require('app/templates/top/top.component');
+var footer_component_1 = require("./footer/footer.component");
+var carousel_component_1 = require("./carousel/carousel.component");
+var ng2_bootstrap_1 = require('ng2-bootstrap');
+var TemplatesModule = (function () {
+    function TemplatesModule() {
+    }
+    TemplatesModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                //FormsModule
+                ng2_bootstrap_1.CarouselModule.forRoot()
+            ],
+            declarations: [
+                header_component_1.HeaderComponent,
+                nav_bar_component_1.NavBarComponent,
+                top_component_1.TopComponent,
+                footer_component_1.FooterComponent,
+                carousel_component_1.CarouselComponent
+            ],
+            exports: [
+                header_component_1.HeaderComponent,
+                nav_bar_component_1.NavBarComponent,
+                top_component_1.TopComponent,
+                footer_component_1.FooterComponent,
+                carousel_component_1.CarouselComponent
+            ]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], TemplatesModule);
+    return TemplatesModule;
+}());
+exports.TemplatesModule = TemplatesModule;
+//# sourceMappingURL=templates.module.js.map

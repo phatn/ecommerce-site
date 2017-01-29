@@ -1,0 +1,18 @@
+/* your styles go here */
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+
+.home-carousel {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.product:hover .buttons {
+    left: 0;
+    display: block;
+}
+
+.product {
+    border: 1px solid #c6c6c6;
+}

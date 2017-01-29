@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+	http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="es-corePU" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.eshop.core.model.Attribute</class>
+        <class>com.eshop.core.model.AttributeValue</class>
+        <class>com.eshop.core.model.Billing</class>
+        <class>com.eshop.core.model.Cart</class>
+        <class>com.eshop.core.model.CartItem</class>
+        <class>com.eshop.core.model.Category</class>
+        <class>com.eshop.core.model.CategoryDescription</class>
+        <class>com.eshop.core.model.Country</class>
+        <class>com.eshop.core.model.Customer</class>
+        <class>com.eshop.core.model.CustomerRole</class>
+        <class>com.eshop.core.model.Delivery</class>
+        <class>com.eshop.core.model.Gender</class>
+        <class>com.eshop.core.model.GenericEntity</class>
+        <class>com.eshop.core.model.ImageFormat</class>
+        <class>com.eshop.core.model.ImageSize</class>
+        <class>com.eshop.core.model.Language</class>
+        <class>com.eshop.core.model.Manufacturer</class>
+        <class>com.eshop.core.model.ManufacturerDescription</class>
+        <class>com.eshop.core.model.Order</class>
+        <class>com.eshop.core.model.OrderLine</class>
+        <class>com.eshop.core.model.OrderStatus</class>
+        <class>com.eshop.core.model.Product</class>
+        <class>com.eshop.core.model.ProductDescription</class>
+        <class>com.eshop.core.model.ProductImage</class>
+        <class>com.eshop.core.model.User</class>
+        <class>com.eshop.core.model.UserPermission</class>
+        <class>com.eshop.core.model.UserRole</class>
+        <class>com.eshop.core.model.PriceRange</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+    </persistence-unit>
+
+</persistence>

@@ -1,0 +1,90 @@
+<!-- *** NAVBAR ***
+    _________________________________________________________ -->
+
+<div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand home" routerLink="/" style="cursor: pointer">
+                    <img style="height: 45px; width: 156px" src="static/images/my-eshop.png" alt="Eshop logo" class="hidden-xs hidden-sm">
+                    <img src="static/images/my-eshop.png" alt="Eshop logo" class="visible-xs visible-sm"><span class="sr-only">Eshop - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            <!--/.navbar-header -->
+
+            <div class="navbar-collapse collapse" id="navigation">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown use-yamm yamm-fw" *ngFor="let cat of categories">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{cat.descriptions[0].name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img [src]="cat.image" class="img-responsive hidden-xs" alt="">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Manufacturers</h5>
+                                            <ul>
+                                                <li *ngFor="let m of cat.manufacturers">
+                                                    <a routerLink="samsung">{{m.descriptions[0].name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                        <div class="col-sm-3">
+                                            <h5>Price</h5>
+                                            <ul>
+                                                <li *ngFor="let price of cat.priceRanges">
+                                                    <a *ngIf ="price.secondPrice" href="template-header-default.html">From {{price.firstPrice | currency:'USD':true}} to {{price.secondPrice | currency:'USD':true}}</a>
+                                                    <a *ngIf ="!price.secondPrice" href="template-header-default.html">More than {{price.firstPrice | currency:'USD':true}}</a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+
+
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+
+
+    </div>
+    <!-- /#navbar -->
+
+</div>
+<!-- *** NAVBAR END *** -->

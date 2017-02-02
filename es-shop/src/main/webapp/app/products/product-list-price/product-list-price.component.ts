@@ -27,19 +27,23 @@ export class ProductListPriceComponent implements OnInit {
                 private route: ActivatedRoute){}
 
     ngOnInit(): void {
-        this.loadProductsByPriceInCategory();
+        this.loadProductsByPriceInCategory(true);
     }
 
     public pageChanged(event: any): void {
         this.pageRequest.page = event.page;
-        this.loadProductsByPriceInCategory();
+        this.loadProductsByPriceInCategory(false);
     }
 
-    private loadProductsByPriceInCategory(): void {
+    private loadProductsByPriceInCategory(isResetPageRequest: boolean = true): void {
         this.route.params
-            .switchMap((params: Params) =>
-                this.productSerivce.getByPriceInCategory(params['catSefUrl'],params['name'],
-                    this.pageRequest))
+            .switchMap((params: Params) => {
+                if(isResetPageRequest) {
+                    this.pageRequest.reset();
+                }
+                return this.productSerivce.getByPriceInCategory(params['catSefUrl'],params['name'],
+                    this.pageRequest)})
+
             .subscribe(body => {
                 this.products = body.data;
                 this.totalItems = body.totalItems;

@@ -14,12 +14,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 //import { FormsModule }    from '@angular/forms';
-var header_component_1 = require('app/templates/header/header.component');
-var nav_bar_component_1 = require('app/templates/nav-bar/nav-bar.component');
-var top_component_1 = require('app/templates/top/top.component');
 var footer_component_1 = require("./footer/footer.component");
 var carousel_component_1 = require("./carousel/carousel.component");
 var ng2_bootstrap_1 = require('ng2-bootstrap');
+var header_component_1 = require("./header/header.component");
+var nav_bar_component_1 = require("./nav-bar/nav-bar.component");
+var top_component_1 = require("./top/top.component");
+var templates_component_1 = require("./templates.component");
+var router_1 = require("@angular/router");
 var TemplatesModule = (function () {
     function TemplatesModule() {
     }
@@ -28,21 +30,24 @@ var TemplatesModule = (function () {
             imports: [
                 common_1.CommonModule,
                 //FormsModule
-                ng2_bootstrap_1.CarouselModule.forRoot()
+                ng2_bootstrap_1.CarouselModule.forRoot(),
+                router_1.RouterModule
             ],
             declarations: [
                 header_component_1.HeaderComponent,
                 nav_bar_component_1.NavBarComponent,
                 top_component_1.TopComponent,
                 footer_component_1.FooterComponent,
-                carousel_component_1.CarouselComponent
+                carousel_component_1.CarouselComponent,
+                templates_component_1.TemplatesComponent
             ],
             exports: [
                 header_component_1.HeaderComponent,
                 nav_bar_component_1.NavBarComponent,
                 top_component_1.TopComponent,
                 footer_component_1.FooterComponent,
-                carousel_component_1.CarouselComponent
+                carousel_component_1.CarouselComponent,
+                templates_component_1.TemplatesComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

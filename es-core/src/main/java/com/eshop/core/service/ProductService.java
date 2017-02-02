@@ -13,6 +13,8 @@ public interface ProductService {
 
     List<ProductDto> findNewArrivals(String languageCode);
 
-    Page<ProductDto> findByManufacturer(long manufacturerId, PageRequest pageRequest, String languageCode);
+    Page<ProductDto> findByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode);
+
+    Page<ProductDto> findByPriceRangeInCategory(String catSefUrl, String priceRangeName, PageRequest pageRequest, String languageCode);
 
 }

@@ -19,7 +19,7 @@ var CarouselComponent = (function () {
     CarouselComponent = __decorate([
         core_1.Component({
             selector: 'eshop-carousel',
-            templateUrl: 'app/templates/carousel/carousel.component.html',
+            templateUrl: 'app/templates/client/carousel/carousel.component.html',
             providers: [{ provide: ng2_bootstrap_1.CarouselConfig, useValue: { interval: 3000, noPause: true } }]
         }), 
         __metadata('design:paramtypes', [])

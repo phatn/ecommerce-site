@@ -31,16 +31,33 @@ public class ProductResource {
                 .build();
     }
 
-    @RequestMapping("/manufacturer/{manufacturerId}/page/{page}/size/{size}")
+    @RequestMapping("/category/{catSefUrl}/manufacturer/{sefUrl}/page/{page}/size/{size}")
     public Response<List<ProductDto>> getByManufacturer(@RequestParam(name = "lang", defaultValue = "en") String languageCode,
-                                                        @PathVariable("manufacturerId") long manufacturerId,
-                                                        @PathVariable("page") int currentPage,
+                                                        @PathVariable("catSefUrl") String catSefUrl,
+                                                        @PathVariable("sefUrl") String sefUrl,
+                                                        @PathVariable("page") int pageNumber,
                                                         @PathVariable("size") int size) {
-        PageRequest pageRequest = new PageRequest(currentPage - 1, size);
-        Page<ProductDto> page = productService.findByManufacturer(manufacturerId, pageRequest, languageCode);
+        PageRequest pageRequest = new PageRequest((pageNumber - 1) * size, size);
+        Page<ProductDto> page = productService.findByManufacturerInCategory(catSefUrl, sefUrl, pageRequest, languageCode);
         return new Response.Builder<>(Response.Status.OK)
                 .data(page.getContent())
-                .total(page.getTotalPages())
+                .pageNumber(pageNumber)
+                .totalItems(page.getTotalItems())
+                .build();
+    }
+
+    @RequestMapping("/category/{catSefUrl}/price/{name}/page/{page}/size/{size}")
+    public Response<List<ProductDto>> getByPrice(@RequestParam(name = "lang", defaultValue = "en") String languageCode,
+                                                        @PathVariable("catSefUrl") String catSefUrl,
+                                                        @PathVariable("name") String name,
+                                                        @PathVariable("page") int pageNumber,
+                                                        @PathVariable("size") int size) {
+        PageRequest pageRequest = new PageRequest((pageNumber - 1) * size, size);
+        Page<ProductDto> page = productService.findByPriceRangeInCategory(catSefUrl, name, pageRequest, languageCode);
+        return new Response.Builder<>(Response.Status.OK)
+                .data(page.getContent())
+                .pageNumber(pageNumber)
+                .totalItems(page.getTotalItems())
                 .build();
     }
 }

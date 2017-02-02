@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'eshop-footer',
-    templateUrl: 'app/templates/footer/footer.component.html'
+    templateUrl: 'app/templates/client/footer/footer.component.html'
 })
 export class FooterComponent {
 

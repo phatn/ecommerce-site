@@ -2,6 +2,7 @@ package com.eshop.core.dao.impl;
 
 import com.eshop.core.dao.AbstractDao;
 import com.eshop.core.dao.ProductDao;
+import com.eshop.core.model.PriceRange;
 import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
@@ -27,13 +28,14 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
     }
 
     @Override
-    public Page<Product> getByManufacturer(long manufacturerId, PageRequest pageRequest, String languageCode) {
+    public Page<Product> getByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode) {
         TypedQuery<Product> query = entityManager
                 .createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
-                        "pd.language l LEFT JOIN FETCH p.productImages " +
-                        "WHERE p.manufacturer.id = :manufacturerId AND l.code = :languageCode", Product.class)
+                        "pd.language l LEFT JOIN FETCH p.productImages WHERE p.category.sefUrl = :catSefUrl " +
+                        "AND p.manufacturer.sefUrl = :manuSefUrl AND l.code = :languageCode", Product.class)
+                .setParameter("catSefUrl", catSefUrl)
                 .setParameter("languageCode", languageCode)
-                .setParameter("manufacturerId", manufacturerId);
+                .setParameter("manuSefUrl", manuSefUrl);
 
         if(pageRequest != null && pageRequest.getPage() > -1) {
             query.setFirstResult(pageRequest.getPage());
@@ -45,10 +47,64 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
         TypedQuery<Long> countQuery = entityManager
                 .createQuery("SELECT count(DISTINCT p) FROM Product p INNER JOIN  p.descriptions pd INNER JOIN " +
-                        "pd.language l LEFT JOIN p.productImages pi " +
-                        "WHERE p.manufacturer.id = :manufacturerId AND l.code = :languageCode", Long.class)
+                        "pd.language l LEFT JOIN p.productImages pi WHERE p.category.sefUrl = :catSefUrl " +
+                        "AND p.manufacturer.sefUrl = :manuSefUrl AND l.code = :languageCode", Long.class)
+                .setParameter("catSefUrl", catSefUrl)
                 .setParameter("languageCode", languageCode)
-                .setParameter("manufacturerId", manufacturerId);
+                .setParameter("manuSefUrl", manuSefUrl);
+
+        return new Page<>(query.getResultList(), pageRequest.getSize(), countQuery.getSingleResult());
+    }
+
+    @Override
+    public Page<Product> getByPriceRangeInCategory(String catSefUrl, PriceRange priceRange, PageRequest pageRequest, String languageCode) {
+
+        StringBuilder querySt = new StringBuilder();
+        querySt.append("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
+                        "pd.language l LEFT JOIN FETCH p.productImages WHERE p.category.sefUrl = :catSefUrl ");
+        if(priceRange.getSecondPrice() != null) {
+            querySt.append("AND p.price BETWEEN :firstPrice AND :secondPrice AND l.code = :languageCode");
+        } else {
+            querySt.append("AND p.price >= :firstPrice AND l.code = :languageCode");
+        }
+
+        TypedQuery<Product> query = entityManager
+                .createQuery(querySt.toString(), Product.class)
+                .setParameter("catSefUrl", catSefUrl)
+                .setParameter("languageCode", languageCode)
+                .setParameter("firstPrice", priceRange.getFirstPrice());
+
+        if(priceRange.getSecondPrice() != null) {
+            query.setParameter("secondPrice", priceRange.getSecondPrice());
+        }
+
+        if(pageRequest != null && pageRequest.getPage() > -1) {
+            query.setFirstResult(pageRequest.getPage());
+        }
+
+        if(pageRequest != null && pageRequest.getSize() > -1) {
+            query.setMaxResults(pageRequest.getSize());
+        }
+
+        StringBuilder countQuerySt = new StringBuilder();
+        countQuerySt.append("SELECT count(DISTINCT p) FROM Product p INNER JOIN  p.descriptions pd INNER JOIN " +
+                "pd.language l LEFT JOIN p.productImages pi WHERE p.category.sefUrl = :catSefUrl ");
+        if(priceRange.getSecondPrice() != null) {
+            countQuerySt.append("AND p.price BETWEEN :firstPrice AND :secondPrice AND l.code = :languageCode");
+        } else {
+            countQuerySt.append("AND p.price >= :firstPrice AND l.code = :languageCode");
+        }
+
+        TypedQuery<Long> countQuery = entityManager
+                .createQuery(countQuerySt.toString(), Long.class)
+                .setParameter("catSefUrl", catSefUrl)
+                .setParameter("languageCode", languageCode)
+                .setParameter("firstPrice", priceRange.getFirstPrice());
+
+        if(priceRange.getSecondPrice() != null) {
+            countQuery.setParameter("secondPrice", priceRange.getSecondPrice());
+
+        }
 
         return new Page<>(query.getResultList(), pageRequest.getSize(), countQuery.getSingleResult());
     }

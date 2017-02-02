@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {Category} from "../../../categories/shared/category.model";
+import {CategoryService} from "../../../categories/shared/category.service";
+import {PriceRange} from "../../../categories/shared/price-range.model";
 
-import { CategoryService } from 'app/categories/shared/category.service';
-import { Category } from "../../categories/shared/category.model";
-import {PriceRange} from "../../categories/shared/price-range.model";
 
 @Component({
     selector: 'eshop-nav-bar',
-    templateUrl: 'app/templates/nav-bar/nav-bar.component.html'
+    templateUrl: 'app/templates/client/nav-bar/nav-bar.component.html'
 })
 export class NavBarComponent implements OnInit {
 

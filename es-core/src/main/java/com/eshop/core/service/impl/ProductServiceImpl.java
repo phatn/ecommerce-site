@@ -1,5 +1,6 @@
 package com.eshop.core.service.impl;
 
+import com.eshop.core.dao.PriceRangeDao;
 import com.eshop.core.dao.ProductDao;
 import com.eshop.core.dto.ProductDto;
 import com.eshop.core.mapping.MapperFactoryFacade;
@@ -25,6 +26,9 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductDao productDao;
 
+    @Autowired
+    private PriceRangeDao priceRangeDao;
+
     @Transactional(readOnly = true)
     @Override
     public List<ProductDto> findNewArrivals(String languageCode) {
@@ -34,11 +38,21 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional(readOnly = true)
     @Override
-    public Page<ProductDto> findByManufacturer(long manufacturerId, PageRequest pageRequest, String languageCode) {
-        Page<Product> page = productDao.getByManufacturer(manufacturerId, pageRequest, languageCode);
+    public Page<ProductDto> findByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest,
+                                                         String languageCode) {
+        Page<Product> page = productDao.getByManufacturerInCategory(catSefUrl, manuSefUrl, pageRequest, languageCode);
+        return new Page<>(toProductDtos(page.getContent(), MapperFactoryFacade.Product.getWithDescriptions()),
+                page.getSize(), page.getTotalItems());
+    }
 
-        return new Page<ProductDto>(toProductDtos(page.getContent(), MapperFactoryFacade.Product.getWithDescriptions()),
-                page.getSize(), page.getTotalPages());
+    @Transactional(readOnly = true)
+    @Override
+    public Page<ProductDto> findByPriceRangeInCategory(String catSefUrl, String priceRangeName, PageRequest pageRequest,
+                                                       String languageCode) {
+        Page<Product> page = productDao.getByPriceRangeInCategory(catSefUrl,
+                priceRangeDao.getByNameInCategory(priceRangeName, catSefUrl), pageRequest, languageCode);
+        return new Page<>(toProductDtos(page.getContent(), MapperFactoryFacade.Product.getWithDescriptions()),
+                page.getSize(), page.getTotalItems());
     }
 
     private ProductDto toProductDto(Product product, MapperFactory mapperFactory){

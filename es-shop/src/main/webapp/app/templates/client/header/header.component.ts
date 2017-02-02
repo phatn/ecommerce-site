@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'eshop-header',
-    templateUrl: 'app/templates/header/header.component.html'
+    templateUrl: 'app/templates/client/header/header.component.html'
 })
 export class HeaderComponent {
 

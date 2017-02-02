@@ -9,20 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by phatnguyen on 10/30/16.
+ * Created by phatnguyen on 1/25/17.
  */
 var core_1 = require('@angular/core');
-var HeaderComponent = (function () {
-    function HeaderComponent() {
+var FooterComponent = (function () {
+    function FooterComponent() {
     }
-    HeaderComponent = __decorate([
+    FooterComponent = __decorate([
         core_1.Component({
-            selector: 'eshop-header',
-            templateUrl: 'app/templates/header/header.component.html'
+            selector: 'eshop-footer',
+            templateUrl: 'app/templates/client/footer/footer.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], HeaderComponent);
-    return HeaderComponent;
+    ], FooterComponent);
+    return FooterComponent;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.FooterComponent = FooterComponent;
+//# sourceMappingURL=footer.component.js.map

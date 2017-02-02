@@ -5,18 +5,27 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { ProductListComponent } from "./product-list/product-list.component";
 import {ProductService} from "./shared/product.service";
-
+import {ProductListManufacturerComponent} from "./product-list-manufacturer/product-list-manufacturer.component";
+import {PaginationModule} from 'ng2-bootstrap';
+import {FormsModule} from "@angular/forms";
+import {ProductListPriceComponent} from "./product-list-price/product-list-price.component";
 
 @NgModule({
     imports: [
-        CommonModule
-        //FormsModule
+        CommonModule,
+        FormsModule,
+        PaginationModule.forRoot()
+
     ],
     declarations: [
-        ProductListComponent
+        ProductListComponent,
+        ProductListManufacturerComponent,
+        ProductListPriceComponent
     ],
     exports: [
-        ProductListComponent
+        ProductListComponent,
+        ProductListManufacturerComponent,
+        ProductListPriceComponent
     ],
     providers: [
         ProductService

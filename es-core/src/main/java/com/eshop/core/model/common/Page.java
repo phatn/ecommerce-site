@@ -15,15 +15,15 @@ public class Page<T> {
      */
     private int size = -1;
 
-    private long totalPages;
+    private long totalItems;
 
     // The number of the current page
     private int number;
 
-    public Page(List<T> content, int size, long totalPages) {
+    public Page(List<T> content, int size, long totalItems) {
         this.content = content;
         this.size = size;
-        this.totalPages = totalPages;
+        this.totalItems = totalItems;
     }
 
     public List<T> getContent() {
@@ -52,11 +52,11 @@ public class Page<T> {
      *
      * @return the number of toral pages
      */
-    public long getTotalPages() {
-        return totalPages;
+    public long getTotalItems() {
+        return totalItems;
     }
 
-    public void setTotalPages(long totalPages) {
-        this.totalPages = totalPages;
+    public void setTotalItems(long totalPages) {
+        this.totalItems = totalItems;
     }
 }

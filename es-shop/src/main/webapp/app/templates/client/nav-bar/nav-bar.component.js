@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var category_service_1 = require('app/categories/shared/category.service');
+var category_service_1 = require("../../../categories/shared/category.service");
 var NavBarComponent = (function () {
     function NavBarComponent(categoryService) {
         this.categoryService = categoryService;
@@ -41,12 +41,11 @@ var NavBarComponent = (function () {
     NavBarComponent = __decorate([
         core_1.Component({
             selector: 'eshop-nav-bar',
-            templateUrl: 'app/templates/nav-bar/nav-bar.component.html'
+            templateUrl: 'app/templates/client/nav-bar/nav-bar.component.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof category_service_1.CategoryService !== 'undefined' && category_service_1.CategoryService) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [category_service_1.CategoryService])
     ], NavBarComponent);
     return NavBarComponent;
-    var _a;
 }());
 exports.NavBarComponent = NavBarComponent;
 //# sourceMappingURL=nav-bar.component.js.map

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 
 @Entity
 @EntityListeners(value = AuditListener.class)
-@Table(name = "ES_PRICE_RANGE")
+@Table(name = "ES_PRICE_RANGE", uniqueConstraints={@UniqueConstraint(columnNames={"id", "name"})})
 public class PriceRange extends GenericEntity implements Auditable, Serializable {
 
     @Id

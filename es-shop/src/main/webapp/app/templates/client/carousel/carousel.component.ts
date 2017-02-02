@@ -8,7 +8,7 @@ import { CarouselConfig } from 'ng2-bootstrap';
 
 @Component({
     selector: 'eshop-carousel',
-    templateUrl: 'app/templates/carousel/carousel.component.html',
+    templateUrl: 'app/templates/client/carousel/carousel.component.html',
     providers: [{provide: CarouselConfig, useValue: { interval: 3000, noPause: true }}]
 })
 export class CarouselComponent {

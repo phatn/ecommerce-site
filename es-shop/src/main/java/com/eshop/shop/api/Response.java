@@ -14,7 +14,7 @@ public class Response<T> {
 
     private final Integer pageNumber;
 
-    private final Long total;
+    private final Long totalItems;
 
     private String nextPage;
 
@@ -28,7 +28,7 @@ public class Response<T> {
 
         private Integer pageNumber;
 
-        private Long total;
+        private Long totalItems;
 
         private String nextPage;
 
@@ -42,7 +42,7 @@ public class Response<T> {
 
         public Builder pageNumber(Integer pageNumber) {this.pageNumber = pageNumber; return this; }
 
-        public Builder total(Long total) {this.total = total; return this; }
+        public Builder totalItems(Long totalItems) {this.totalItems = totalItems; return this; }
 
         public Builder nextPage(String nextPage) {this.nextPage = nextPage; return this; }
 
@@ -57,7 +57,7 @@ public class Response<T> {
         data = builder.data;
         error = builder.error;
         pageNumber = builder.pageNumber;
-        total =  builder.total;
+        totalItems =  builder.totalItems;
         nextPage = builder.nextPage;
     }
 
@@ -69,8 +69,8 @@ public class Response<T> {
         return nextPage;
     }
 
-    public Long getTotal() {
-        return total;
+    public Long getTotalItems() {
+        return totalItems;
     }
 
     public Status getStatus() {

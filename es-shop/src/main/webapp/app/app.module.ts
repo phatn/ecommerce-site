@@ -16,14 +16,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
-import { HomeComponent} from 'app/home/home.component';
-import { TemplatesModule } from 'app/templates/templates.module';
-import { ProductModule } from 'app/products/product.module';
-import { CategoryModule } from "./categories/category.module";
-import { AppRoutingModule } from "./app-routing.module";
-import { HomeRoutingModule } from "./home/home-routing.module";
-import { HomeProductListComponent } from "./home/home-product-list/home-product-list.component";
 
+import {CategoryModule} from "./categories/category.module";
+import {AppRoutingModule} from "./app-routing.module";
+import {HomeProductListComponent} from "./home/home-product-list/home-product-list.component";
+import {TemplatesModule} from "./templates/client/templates.module";
+import {ProductModule} from "./products/product.module";
+import {HomeComponent} from "./home/home.component";
+import {TemplatesRoutingModule} from "./templates/client/templates-routing.module";
 
 @NgModule({
     imports: [
@@ -34,7 +34,7 @@ import { HomeProductListComponent } from "./home/home-product-list/home-product-
         TemplatesModule,
         ProductModule,
         CategoryModule,
-        HomeRoutingModule
+        TemplatesRoutingModule
     ],
     declarations: [
         AppComponent,

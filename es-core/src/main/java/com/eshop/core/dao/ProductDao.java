@@ -1,5 +1,6 @@
 package com.eshop.core.dao;
 
+import com.eshop.core.model.PriceRange;
 import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
@@ -14,5 +15,7 @@ public interface ProductDao  {
 
     List<Product> getNewArrivals(String languageCode);
 
-    Page<Product> getByManufacturer(long manufacturerId, PageRequest pageRequest, String languageCode);
+    Page<Product> getByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode);
+
+    Page<Product> getByPriceRangeInCategory(String catSefUrl, PriceRange priceRange, PageRequest pageRequest, String languageCode);
 }

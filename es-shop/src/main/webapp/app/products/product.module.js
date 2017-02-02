@@ -15,19 +15,29 @@ var core_1 = require('@angular/core');
 var common_1 = require("@angular/common");
 var product_list_component_1 = require("./product-list/product-list.component");
 var product_service_1 = require("./shared/product.service");
+var product_list_manufacturer_component_1 = require("./product-list-manufacturer/product-list-manufacturer.component");
+var ng2_bootstrap_1 = require('ng2-bootstrap');
+var forms_1 = require("@angular/forms");
+var product_list_price_component_1 = require("./product-list-price/product-list-price.component");
 var ProductModule = (function () {
     function ProductModule() {
     }
     ProductModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule
+                common_1.CommonModule,
+                forms_1.FormsModule,
+                ng2_bootstrap_1.PaginationModule.forRoot()
             ],
             declarations: [
-                product_list_component_1.ProductListComponent
+                product_list_component_1.ProductListComponent,
+                product_list_manufacturer_component_1.ProductListManufacturerComponent,
+                product_list_price_component_1.ProductListPriceComponent
             ],
             exports: [
-                product_list_component_1.ProductListComponent
+                product_list_component_1.ProductListComponent,
+                product_list_manufacturer_component_1.ProductListManufacturerComponent,
+                product_list_price_component_1.ProductListPriceComponent
             ],
             providers: [
                 product_service_1.ProductService

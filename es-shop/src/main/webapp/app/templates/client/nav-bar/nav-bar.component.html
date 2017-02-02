@@ -36,7 +36,7 @@
                                             <h5>Manufacturers</h5>
                                             <ul>
                                                 <li *ngFor="let m of cat.manufacturers">
-                                                    <a routerLink="samsung">{{m.descriptions[0].name}}</a>
+                                                    <a routerLink="/products/category/{{cat.sefUrl}}/manufacturer/{{m.sefUrl}}">{{m.descriptions[0].name}}</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -46,8 +46,8 @@
                                             <h5>Price</h5>
                                             <ul>
                                                 <li *ngFor="let price of cat.priceRanges">
-                                                    <a *ngIf ="price.secondPrice" href="template-header-default.html">From {{price.firstPrice | currency:'USD':true}} to {{price.secondPrice | currency:'USD':true}}</a>
-                                                    <a *ngIf ="!price.secondPrice" href="template-header-default.html">More than {{price.firstPrice | currency:'USD':true}}</a>
+                                                    <a *ngIf ="price.secondPrice" routerLink="/products/category/{{cat.sefUrl}}/price/{{price.name}}">From {{price.firstPrice | currency:'USD':true}} to {{price.secondPrice | currency:'USD':true}}</a>
+                                                    <a *ngIf ="!price.secondPrice" routerLink="/products/category/{{cat.sefUrl}}/price/{{price.name}}">More than {{price.firstPrice | currency:'USD':true}}</a>
                                                 </li>
 
                                             </ul>

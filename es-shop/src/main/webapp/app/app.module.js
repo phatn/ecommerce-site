@@ -22,13 +22,13 @@ require('rxjs/add/operator/distinctUntilChanged');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/switchMap');
 require('rxjs/add/operator/toPromise');
-var home_component_1 = require('app/home/home.component');
-var templates_module_1 = require('app/templates/templates.module');
-var product_module_1 = require('app/products/product.module');
 var category_module_1 = require("./categories/category.module");
 var app_routing_module_1 = require("./app-routing.module");
-var home_routing_module_1 = require("./home/home-routing.module");
 var home_product_list_component_1 = require("./home/home-product-list/home-product-list.component");
+var templates_module_1 = require("./templates/client/templates.module");
+var product_module_1 = require("./products/product.module");
+var home_component_1 = require("./home/home.component");
+var templates_routing_module_1 = require("./templates/client/templates-routing.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -42,7 +42,7 @@ var AppModule = (function () {
                 templates_module_1.TemplatesModule,
                 product_module_1.ProductModule,
                 category_module_1.CategoryModule,
-                home_routing_module_1.HomeRoutingModule
+                templates_routing_module_1.TemplatesRoutingModule
             ],
             declarations: [
                 app_component_1.AppComponent,

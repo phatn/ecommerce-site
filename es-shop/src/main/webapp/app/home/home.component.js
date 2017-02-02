@@ -20,7 +20,7 @@ var HomeComponent = (function () {
     }
     HomeComponent = __decorate([
         core_1.Component({
-            // selector: 'eshop-home',
+            selector: 'eshop-home',
             templateUrl: 'app/home/home.component.html'
         }), 
         __metadata('design:paramtypes', [])

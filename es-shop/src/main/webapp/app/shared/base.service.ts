@@ -17,6 +17,10 @@ export class BaseService {
         return body.data || { };
     }
 
+    protected extractBody(res: Response) {
+        return res.json();
+    }
+
     protected handleError (error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;

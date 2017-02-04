@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {ProductListPriceComponent} from "./product-list-price/product-list-price.component";
 import {RouterModule} from "@angular/router";
 import {BreadcrumbsComponent} from "../breadcrumbs/breadcrumbs.component";
+import {ProductListCategoryComponent} from "./product-list-category/product-list-category.component";
 
 @NgModule({
     imports: [
@@ -23,12 +24,14 @@ import {BreadcrumbsComponent} from "../breadcrumbs/breadcrumbs.component";
         ProductListComponent,
         ProductListManufacturerComponent,
         ProductListPriceComponent,
+        ProductListCategoryComponent,
         BreadcrumbsComponent
     ],
     exports: [
         ProductListComponent,
         ProductListManufacturerComponent,
-        ProductListPriceComponent
+        ProductListPriceComponent,
+        ProductListCategoryComponent
     ],
     providers: [
         ProductService

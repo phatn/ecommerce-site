@@ -22,6 +22,7 @@ var base_service_1 = require("../../shared/base.service");
 var PRODUCT_GET_NEW_ARRIVALS_URL = 'api/products/new-arrivals';
 var PRODUCT_GET_BY_MANUFACTURER_IN_CATEGORY_URL = 'api/products/category';
 var PRODUCT_GET_BY_PRICE_IN_CATEGORY_URL = 'api/products/category';
+var PRODUCT_GET_BY_CATEGORY_URL = 'api/products/category';
 var ProductService = (function (_super) {
     __extends(ProductService, _super);
     function ProductService(http) {
@@ -43,6 +44,12 @@ var ProductService = (function (_super) {
     ProductService.prototype.getByPriceInCategory = function (catSefUrl, name, pageRequest) {
         var _this = this;
         return this.http.get(PRODUCT_GET_BY_PRICE_IN_CATEGORY_URL + "/" + catSefUrl + "/price/" + name + "/page/" + pageRequest.page + "/size/" + pageRequest.size)
+            .map(function (res) { return _this.extractBody(res); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.getByCategory = function (catSefUrl, pageRequest) {
+        var _this = this;
+        return this.http.get(PRODUCT_GET_BY_CATEGORY_URL + "/" + catSefUrl + "/page/" + pageRequest.page + "/size/" + pageRequest.size)
             .map(function (res) { return _this.extractBody(res); })
             .catch(this.handleError);
     };

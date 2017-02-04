@@ -5,7 +5,6 @@ import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,4 +17,6 @@ public interface ProductDao  {
     Page<Product> getByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode);
 
     Page<Product> getByPriceRangeInCategory(String catSefUrl, PriceRange priceRange, PageRequest pageRequest, String languageCode);
+
+    Page<Product> getByCategory(String catSefUrl, PageRequest pageRequest, String languageCode);
 }

@@ -59,7 +59,7 @@ export class ProductListPriceComponent implements OnInit {
     private buildBreadcrumbs(catSefUrl: string, name: string): void {
         this.breadcrumbs = [];
         this.breadcrumbs.push(rootBreadCrumb);
-        this.breadcrumbs.push(new Breadcrumb(`category/${catSefUrl}`, catSefUrl.replace("-", " ")));
+        this.breadcrumbs.push(new Breadcrumb(`products/category/${catSefUrl}`, catSefUrl.replace("-", " ")));
         this.breadcrumbs.push(new Breadcrumb("", name.replace("-", " "), true));
     }
 }

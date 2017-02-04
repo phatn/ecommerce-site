@@ -55,6 +55,15 @@ public class ProductServiceImpl implements ProductService {
                 page.getSize(), page.getTotalItems());
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public Page<ProductDto> findByCategory(String catSefUrl, PageRequest pageRequest, String languageCode) {
+        Page<Product> page = productDao.getByCategory(catSefUrl, pageRequest, languageCode);
+        return new Page<>(toProductDtos(page.getContent(), MapperFactoryFacade.Product.getWithDescriptions()),
+                page.getSize(), page.getTotalItems());
+    }
+
+    // =========================== Private utility methods =============================
     private ProductDto toProductDto(Product product, MapperFactory mapperFactory){
         MapperFacade mapper = mapperFactory.getMapperFacade();
         return mapper.map(product, ProductDto.class);

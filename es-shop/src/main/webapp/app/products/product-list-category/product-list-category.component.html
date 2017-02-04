@@ -1,0 +1,26 @@
+<eshop-breadcrumbs [breadcrumbs]="breadcrumbs"></eshop-breadcrumbs>
+<div id="content">
+    <div class="container-fluid">
+        <eshop-product-list [products]="products"></eshop-product-list>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="pages">
+                    <pagination [boundaryLinks]="true"
+                                [itemsPerPage]="itemsPerPage"
+                                [totalItems]="totalItems"
+                                [(ngModel)]="pageRequest.page"
+                                (pageChanged)="pageChanged($event)"
+                                class="pagination-sm"
+                                previousText="&lsaquo;"
+                                nextText="&rsaquo;"
+                                firstText="&laquo;"
+                                lastText="&raquo;">
+
+                    </pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /#content -->

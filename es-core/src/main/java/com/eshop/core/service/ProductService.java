@@ -17,4 +17,6 @@ public interface ProductService {
 
     Page<ProductDto> findByPriceRangeInCategory(String catSefUrl, String priceRangeName, PageRequest pageRequest, String languageCode);
 
+    Page<ProductDto> findByCategory(String catSefUrl, PageRequest pageRequest, String languageCode);
+
 }

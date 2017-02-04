@@ -60,4 +60,18 @@ public class ProductResource {
                 .totalItems(page.getTotalItems())
                 .build();
     }
+
+    @RequestMapping("/category/{catSefUrl}/page/{page}/size/{size}")
+    public Response<List<ProductDto>> getByCategory(@RequestParam(name = "lang", defaultValue = "en") String languageCode,
+                                                 @PathVariable("catSefUrl") String catSefUrl,
+                                                 @PathVariable("page") int pageNumber,
+                                                 @PathVariable("size") int size) {
+        PageRequest pageRequest = new PageRequest((pageNumber - 1) * size, size);
+        Page<ProductDto> page = productService.findByCategory(catSefUrl, pageRequest, languageCode);
+        return new Response.Builder<>(Response.Status.OK)
+                .data(page.getContent())
+                .pageNumber(pageNumber)
+                .totalItems(page.getTotalItems())
+                .build();
+    }
 }

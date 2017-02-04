@@ -1,3 +1,6 @@
+/**
+ * Created by phatnguyen on 2/4/17.
+ */
 import {Component, OnInit} from "@angular/core";
 import {Product} from "../shared/product.model";
 import {PageRequest} from "../../shared/page-request";
@@ -9,10 +12,10 @@ import {rootBreadCrumb} from "../../breadcrumbs/shared/root-breadcrumb";
 
 
 @Component({
-    selector: 'eshop-product-list-manufacturer',
-    templateUrl: 'app/products/product-list-manufacturer/product-list-manufacturer.component.html'
+    selector: 'eshop-product-list-category',
+    templateUrl: 'app/products/product-list-category/product-list-category.component.html'
 })
-export class ProductListManufacturerComponent implements OnInit {
+export class ProductListCategoryComponent implements OnInit {
 
     products: Product[];
 
@@ -28,23 +31,23 @@ export class ProductListManufacturerComponent implements OnInit {
                 private route: ActivatedRoute){}
 
     ngOnInit(): void {
-        this.loadProductByManufacturer();
+        this.loadProductByCategory();
     }
 
     public pageChanged(event: any): void {
         this.pageRequest.page = event.page;
-        this.loadProductByManufacturer(false);
+        this.loadProductByCategory(false);
     }
 
-    private loadProductByManufacturer(isResetPageRequest: boolean = true): void {
+    private loadProductByCategory(isResetPageRequest: boolean = true): void {
         this.route.params
             .switchMap((params: Params) => {
                 if(isResetPageRequest) {
                     this.pageRequest.reset();
-                    this.buildBreadcrumbs(params['catSefUrl'], params['manuSefUrl']);
+                    this.buildBreadcrumbs(params['catSefUrl']);
                 }
                 return this.productService.
-                    getByManufacturerInCategory(params['catSefUrl'], params['manuSefUrl'], this.pageRequest)
+                getByCategory(params['catSefUrl'], this.pageRequest)
             })
             .subscribe(body => {
                 this.products = body.data;
@@ -52,10 +55,9 @@ export class ProductListManufacturerComponent implements OnInit {
             });
     }
 
-    private buildBreadcrumbs(catSefUrl: string, manuSefUrl: string): void {
+    private buildBreadcrumbs(catSefUrl: string): void {
         this.breadcrumbs = [];
         this.breadcrumbs.push(rootBreadCrumb);
-        this.breadcrumbs.push(new Breadcrumb(`products/category/${catSefUrl}`, catSefUrl.replace("-", " ")));
-        this.breadcrumbs.push(new Breadcrumb("", manuSefUrl.replace("-", " "), true));
+        this.breadcrumbs.push(new Breadcrumb(`products/category/${catSefUrl}`, catSefUrl.replace("-", " "), true));
     }
 }

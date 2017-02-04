@@ -108,4 +108,32 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
         return new Page<>(query.getResultList(), pageRequest.getSize(), countQuery.getSingleResult());
     }
+
+    @Override
+    public Page<Product> getByCategory(String catSefUrl, PageRequest pageRequest, String languageCode) {
+
+        TypedQuery<Product> query = entityManager
+                .createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
+                        "pd.language l LEFT JOIN FETCH p.productImages WHERE p.category.sefUrl = :catSefUrl " +
+                        "AND l.code = :languageCode", Product.class)
+                .setParameter("catSefUrl", catSefUrl)
+                .setParameter("languageCode", languageCode);
+
+        if(pageRequest != null && pageRequest.getPage() > -1) {
+            query.setFirstResult(pageRequest.getPage());
+        }
+
+        if(pageRequest != null && pageRequest.getSize() > -1) {
+            query.setMaxResults(pageRequest.getSize());
+        }
+
+        TypedQuery<Long> countQuery = entityManager
+                .createQuery("SELECT count(DISTINCT p) FROM Product p INNER JOIN  p.descriptions pd INNER JOIN " +
+                        "pd.language l LEFT JOIN p.productImages pi WHERE p.category.sefUrl = :catSefUrl " +
+                        "AND l.code = :languageCode", Long.class)
+                .setParameter("catSefUrl", catSefUrl)
+                .setParameter("languageCode", languageCode);
+
+        return new Page<>(query.getResultList(), pageRequest.getSize(), countQuery.getSingleResult());
+    }
 }

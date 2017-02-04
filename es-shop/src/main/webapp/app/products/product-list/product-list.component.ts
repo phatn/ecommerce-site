@@ -9,4 +9,8 @@ export class ProductListComponent {
 
     @Input() products: Product[] = [];
 
+    addToCart() {
+        alert("Added to cart");
+    }
+
 }

@@ -11,10 +11,15 @@
 .product:hover .buttons {
     left: 0;
     display: block;
+    background: rgba(255, 255, 255, 0);
+}
+
+.product:hover {
+    border: 1px solid #a8a8a8;
 }
 
 .product {
-    border: 1px solid #c6c6c6;
+    border: 1px dotted #ccc;
     margin-bottom: 1px;
 }
 
@@ -43,4 +48,11 @@
 }
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+.product:hover .image img {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
 }

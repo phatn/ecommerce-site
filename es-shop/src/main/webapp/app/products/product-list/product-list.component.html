@@ -3,24 +3,21 @@
     <div class="col-md-3 col-sm-4" *ngFor="let product of products" style="padding-right: 1px; padding-left: 0">
         <div class="product">
             <div class="image" *ngIf="product.productImages?.length > 0">
-                <a href="shop-detail.html">
+                <a routerLink="/product/{{product.sefUrl}}">
                     <img [src]="product.productImages[0].image" alt="" class="img-responsive image1 center-block">
                 </a>
             </div>
 
             <div class="image" *ngIf="product.productImages?.length == 0">
-                <a href="shop-detail.html">
+                <a routerLink="/product/{{product.sefUrl}}">
                     <img src="static/upload/images/product/no-image-150x150.jpg" alt="" class="img-responsive image1 center-block">
                 </a>
             </div>
             <!-- /.image -->
             <div class="text">
-                <h3><a href="shop-detail.html">{{product.descriptions[0].name}}</a></h3>
+                <h3><a routerLink="/product/{{product.sefUrl}}">{{product.descriptions[0].name}}</a></h3>
                 <p class="price"><del>{{product.salePrice | currency:'USD':true}}</del> {{product.price | currency:'USD':true}}</p>
-                <div class="buttons">
-                    <a routerLink="/product/{{product.sefUrl}}" class="btn btn-default">View detail</a>
-                    <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
+                <p><a (click)="addToCart()" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
             </div>
             <!-- /.text -->
 

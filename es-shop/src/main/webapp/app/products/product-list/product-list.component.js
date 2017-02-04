@@ -13,6 +13,9 @@ var ProductListComponent = (function () {
     function ProductListComponent() {
         this.products = [];
     }
+    ProductListComponent.prototype.addToCart = function () {
+        alert("Added to cart");
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

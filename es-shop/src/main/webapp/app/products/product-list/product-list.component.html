@@ -1,7 +1,6 @@
-
 <div class="row products" *ngIf="products">
 
-    <div class="col-md-3 col-sm-4" *ngFor="let product of products">
+    <div class="col-md-3 col-sm-4" *ngFor="let product of products" style="padding-right: 1px; padding-left: 0">
         <div class="product">
             <div class="image" *ngIf="product.productImages?.length > 0">
                 <a href="shop-detail.html">

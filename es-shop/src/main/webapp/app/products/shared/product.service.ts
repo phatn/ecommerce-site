@@ -26,14 +26,14 @@ export class ProductService extends BaseService {
             .catch(this.handleError);
     }
 
-    getByManufacturerInCategory(catSefUrl: string, manuSelUrl: string, pageRequest: PageRequest): Observable<Response> {
+    getByManufacturerInCategory(catSefUrl: string, manuSelUrl: string, pageRequest: PageRequest): Observable<any> {
         return this.http.get(
             `${PRODUCT_GET_BY_MANUFACTURER_IN_CATEGORY_URL}/${catSefUrl}/manufacturer/${manuSelUrl}/page/${pageRequest.page}/size/${pageRequest.size}`)
             .map(res => this.extractBody(res))
             .catch(this.handleError);
     }
 
-    getByPriceInCategory(catSefUrl: string, name: string, pageRequest: PageRequest): Observable<Response> {
+    getByPriceInCategory(catSefUrl: string, name: string, pageRequest: PageRequest): Observable<any> {
         return this.http.get(
             `${PRODUCT_GET_BY_PRICE_IN_CATEGORY_URL}/${catSefUrl}/price/${name}/page/${pageRequest.page}/size/${pageRequest.size}`)
             .map(res => this.extractBody(res))

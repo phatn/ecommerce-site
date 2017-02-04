@@ -20,9 +20,7 @@ var HomeModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule
-            ],
-            declarations: [],
-            exports: []
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeModule);

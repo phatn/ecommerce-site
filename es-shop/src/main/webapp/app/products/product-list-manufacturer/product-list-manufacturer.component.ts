@@ -4,6 +4,7 @@ import {PageRequest} from "../../shared/page-request";
 import {ProductService} from "../shared/product.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AppSettings} from "../../shared/app-settings";
+import {Breadcrumb} from "../../breadcrumbs/shared/breadcrumb.model";
 
 
 @Component({
@@ -20,10 +21,15 @@ export class ProductListManufacturerComponent implements OnInit {
 
     itemsPerPage:number = AppSettings.PAGE_SIZE;
 
-    constructor(private productSerivce: ProductService,
+    breadcrumbs: Breadcrumb[] = [];
+
+    constructor(private productService: ProductService,
                 private route: ActivatedRoute){}
 
     ngOnInit(): void {
+        this.breadcrumbs.push(new Breadcrumb("", "Home", false));
+        this.breadcrumbs.push(new Breadcrumb("category/laptop", "laptop", false));
+        this.breadcrumbs.push(new Breadcrumb("category/laptop/manufacturer/acer", "acer", true));
         this.loadProductByManufacturer();
     }
 
@@ -34,7 +40,8 @@ export class ProductListManufacturerComponent implements OnInit {
 
     private loadProductByManufacturer(): void {
         this.route.params
-            .switchMap((params: Params) => this.productSerivce.getByManufacturerInCategory(params['catSefUrl'], params['manuSefUrl'], this.pageRequest))
+            .switchMap((params: Params) => this.productService.
+            getByManufacturerInCategory(params['catSefUrl'], params['manuSefUrl'], this.pageRequest))
             .subscribe(body => {
                 this.products = body.data;
                 this.totalItems = body.totalItems;

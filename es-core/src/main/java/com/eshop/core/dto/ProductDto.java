@@ -26,6 +26,8 @@ public class ProductDto {
 
     private Boolean newArrivals;
 
+    private String sefUrl;
+
     private AuditSection auditSection;
 
     private List<ProductDescriptionDto> descriptions;
@@ -158,5 +160,13 @@ public class ProductDto {
 
     public void setNewArrivals(Boolean newArrivals) {
         this.newArrivals = newArrivals;
+    }
+
+    public String getSefUrl() {
+        return sefUrl;
+    }
+
+    public void setSefUrl(String sefUrl) {
+        this.sefUrl = sefUrl;
     }
 }

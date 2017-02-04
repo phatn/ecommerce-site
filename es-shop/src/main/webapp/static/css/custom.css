@@ -41,3 +41,6 @@
 .breadcrumb {
     text-align: left;
 }
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

@@ -24,7 +24,7 @@ public class ProductDescription extends GenericEntity implements Auditable, Seri
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne

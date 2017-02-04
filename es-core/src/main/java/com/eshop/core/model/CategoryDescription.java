@@ -24,7 +24,7 @@ public class CategoryDescription extends GenericEntity implements Auditable, Ser
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -7,6 +7,8 @@ import {PageRequest} from "../../shared/page-request";
 import {ProductService} from "../shared/product.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AppSettings} from "../../shared/app-settings";
+import {Breadcrumb} from "../../breadcrumbs/shared/breadcrumb.model";
+import {rootBreadCrumb} from "../../breadcrumbs/shared/root-breadcrumb";
 
 
 @Component({
@@ -23,6 +25,8 @@ export class ProductListPriceComponent implements OnInit {
 
     itemsPerPage:number = AppSettings.PAGE_SIZE;
 
+    breadcrumbs: Breadcrumb[] = [];
+
     constructor(private productSerivce: ProductService,
                 private route: ActivatedRoute){}
 
@@ -38,15 +42,24 @@ export class ProductListPriceComponent implements OnInit {
     private loadProductsByPriceInCategory(isResetPageRequest: boolean = true): void {
         this.route.params
             .switchMap((params: Params) => {
+
                 if(isResetPageRequest) {
                     this.pageRequest.reset();
+                    this.buildBreadcrumbs(params['catSefUrl'], params['name']);
                 }
-                return this.productSerivce.getByPriceInCategory(params['catSefUrl'],params['name'],
+                return this.productSerivce.getByPriceInCategory(params['catSefUrl'], params['name'],
                     this.pageRequest)})
 
             .subscribe(body => {
                 this.products = body.data;
                 this.totalItems = body.totalItems;
             });
+    }
+
+    private buildBreadcrumbs(catSefUrl: string, name: string): void {
+        this.breadcrumbs = [];
+        this.breadcrumbs.push(rootBreadCrumb);
+        this.breadcrumbs.push(new Breadcrumb(`category/${catSefUrl}`, catSefUrl.replace("-", " ")));
+        this.breadcrumbs.push(new Breadcrumb("", name.replace("-", " "), true));
     }
 }

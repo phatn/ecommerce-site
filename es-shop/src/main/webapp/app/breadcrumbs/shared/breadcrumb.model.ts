@@ -5,5 +5,5 @@ export class Breadcrumb {
 
     constructor(public url: string,
                 public name: string,
-                public active: boolean) {}
+                public active: boolean = false) {}
 }

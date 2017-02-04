@@ -12,6 +12,7 @@ import {ProductListPriceComponent} from "./product-list-price/product-list-price
 import {RouterModule} from "@angular/router";
 import {BreadcrumbsComponent} from "../breadcrumbs/breadcrumbs.component";
 import {ProductListCategoryComponent} from "./product-list-category/product-list-category.component";
+import {ProductDetailComponent} from "./product-detail/product-detail.component";
 
 @NgModule({
     imports: [
@@ -25,13 +26,15 @@ import {ProductListCategoryComponent} from "./product-list-category/product-list
         ProductListManufacturerComponent,
         ProductListPriceComponent,
         ProductListCategoryComponent,
+        ProductDetailComponent,
         BreadcrumbsComponent
     ],
     exports: [
         ProductListComponent,
         ProductListManufacturerComponent,
         ProductListPriceComponent,
-        ProductListCategoryComponent
+        ProductListCategoryComponent,
+        ProductDetailComponent
     ],
     providers: [
         ProductService

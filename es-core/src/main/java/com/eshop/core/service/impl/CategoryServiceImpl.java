@@ -45,10 +45,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     private List<CategoryDto> toCategoryDtos(List<Category> categories, MapperFactory mapperFactory) {
         List<CategoryDto> categoryDtos = new ArrayList<>();
-        for(Category category : categories) {
+        for (Category category : categories) {
             categoryDtos.add(toCategoryDto(category, mapperFactory));
         }
 
         return categoryDtos;
     }
+
 }

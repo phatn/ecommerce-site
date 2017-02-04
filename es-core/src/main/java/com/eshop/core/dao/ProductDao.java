@@ -12,6 +12,8 @@ import java.util.List;
  */
 public interface ProductDao  {
 
+    Product getBySefUrl(String sefUrl, String languageCode);
+
     List<Product> getNewArrivals(String languageCode);
 
     Page<Product> getByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode);

@@ -63,6 +63,13 @@ public class ProductServiceImpl implements ProductService {
                 page.getSize(), page.getTotalItems());
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public ProductDto findBySefUrl(String sefUrl, String languageCode) {
+        return toProductDto(productDao.getBySefUrl(sefUrl, languageCode),
+                MapperFactoryFacade.Product.getWithDetail());
+    }
+
     // =========================== Private utility methods =============================
     private ProductDto toProductDto(Product product, MapperFactory mapperFactory){
         MapperFacade mapper = mapperFactory.getMapperFacade();

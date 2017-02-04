@@ -1,11 +1,7 @@
 package com.eshop.core.mapping;
 
-import com.eshop.core.dto.ProductDescriptionDto;
-import com.eshop.core.dto.ProductDto;
-import com.eshop.core.dto.ProductImageDto;
-import com.eshop.core.model.Product;
-import com.eshop.core.model.ProductDescription;
-import com.eshop.core.model.ProductImage;
+import com.eshop.core.dto.*;
+import com.eshop.core.model.*;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 
@@ -15,6 +11,8 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 public class ProductMapperFactory {
 
     private static MapperFactory mapperFactoryWithDes;
+
+    private static MapperFactory mapperFactoryWithDetail;
 
     private ProductMapperFactory() {}
 
@@ -46,5 +44,45 @@ public class ProductMapperFactory {
         }
 
         return mapperFactoryWithDes;
+    }
+
+    public static MapperFactory getMapperFactoryWithDetail() {
+        if(mapperFactoryWithDetail == null) {
+            synchronized (ProductMapperFactory.class) {
+                if(mapperFactoryWithDetail == null) {
+                    mapperFactoryWithDetail = new DefaultMapperFactory.Builder().build();
+                    mapperFactoryWithDetail.classMap(Product.class, ProductDto.class)
+                            .exclude("attributeValues")
+                            .exclude("manufacturer")
+                            .exclude("orderLines")
+                            .byDefault()
+                            .register();
+
+
+                    mapperFactoryWithDetail.classMap(Category.class, CategoryDto.class)
+                            .exclude("categories")
+                            .exclude("products")
+                            .exclude("manufacturers")
+                            .exclude("descriptions")
+                            .exclude("priceRanges")
+                            .exclude("parent")
+                            .byDefault()
+                            .register();
+
+                    mapperFactoryWithDetail.classMap(ProductDescription.class, ProductDescriptionDto.class)
+                            .exclude("product")
+                            .exclude("language")
+                            .byDefault()
+                            .register();
+
+                    mapperFactoryWithDetail.classMap(ProductImage.class, ProductImageDto.class)
+                            .exclude("product")
+                            .byDefault()
+                            .register();
+                }
+            }
+        }
+
+        return mapperFactoryWithDetail;
     }
 }

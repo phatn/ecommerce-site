@@ -23,6 +23,7 @@ var PRODUCT_GET_NEW_ARRIVALS_URL = 'api/products/new-arrivals';
 var PRODUCT_GET_BY_MANUFACTURER_IN_CATEGORY_URL = 'api/products/category';
 var PRODUCT_GET_BY_PRICE_IN_CATEGORY_URL = 'api/products/category';
 var PRODUCT_GET_BY_CATEGORY_URL = 'api/products/category';
+var PRODUCT_GET_BY_SEF_URL_URL = 'api/products';
 var ProductService = (function (_super) {
     __extends(ProductService, _super);
     function ProductService(http) {
@@ -51,6 +52,12 @@ var ProductService = (function (_super) {
         var _this = this;
         return this.http.get(PRODUCT_GET_BY_CATEGORY_URL + "/" + catSefUrl + "/page/" + pageRequest.page + "/size/" + pageRequest.size)
             .map(function (res) { return _this.extractBody(res); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.getBySefUrl = function (prodSefUrl) {
+        var _this = this;
+        return this.http.get(PRODUCT_GET_BY_SEF_URL_URL + "/" + prodSefUrl)
+            .map(function (res) { return _this.extractData(res); })
             .catch(this.handleError);
     };
     ProductService = __decorate([

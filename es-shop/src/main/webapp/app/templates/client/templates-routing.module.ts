@@ -9,6 +9,7 @@ import {HomeComponent} from "../../home/home.component";
 import {ProductListPriceComponent} from "../../products/product-list-price/product-list-price.component";
 import {ProductListManufacturerComponent} from "../../products/product-list-manufacturer/product-list-manufacturer.component";
 import {ProductListCategoryComponent} from "../../products/product-list-category/product-list-category.component";
+import {ProductDetailComponent} from "../../products/product-detail/product-detail.component";
 
 
 const templatesRoutes: Routes = [
@@ -17,7 +18,8 @@ const templatesRoutes: Routes = [
             { path : '', component: HomeComponent},
             { path: 'products/category/:catSefUrl', component: ProductListCategoryComponent},
             { path: 'products/category/:catSefUrl/manufacturer/:manuSefUrl', component: ProductListManufacturerComponent},
-            { path: 'products/category/:catSefUrl/price/:name', component: ProductListPriceComponent}
+            { path: 'products/category/:catSefUrl/price/:name', component: ProductListPriceComponent},
+            { path: 'product/:prodSefUrl', component: ProductDetailComponent}
         ]
     }
 ];

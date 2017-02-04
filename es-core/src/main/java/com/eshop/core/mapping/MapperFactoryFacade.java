@@ -27,6 +27,10 @@ public class MapperFactoryFacade {
             return ProductMapperFactory.getMapperFactoryWithDesc();
         }
 
+        public static MapperFactory getWithDetail() {
+            return ProductMapperFactory.getMapperFactoryWithDetail();
+        }
+
         public static MapperFactory getWithDescAndManufacturers() {
             throw new NotImplementedException();
         }

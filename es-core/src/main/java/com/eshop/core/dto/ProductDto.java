@@ -36,7 +36,7 @@ public class ProductDto {
 
     private List<AttributeValueDto> attributeValues;
 
-    private CategoryDto categoryDto;
+    private CategoryDto category;
 
     private ManufacturerDto manufacturer;
 
@@ -130,12 +130,12 @@ public class ProductDto {
         this.attributeValues = attributeValues;
     }
 
-    public CategoryDto getCategoryDto() {
-        return categoryDto;
+    public CategoryDto getCategory() {
+        return category;
     }
 
-    public void setCategoryDto(CategoryDto categoryDto) {
-        this.categoryDto = categoryDto;
+    public void setCategory(CategoryDto category) {
+        this.category = category;
     }
 
     public ManufacturerDto getManufacturer() {

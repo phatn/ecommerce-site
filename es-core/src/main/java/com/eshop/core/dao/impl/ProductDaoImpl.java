@@ -136,4 +136,14 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
         return new Page<>(query.getResultList(), pageRequest.getSize(), countQuery.getSingleResult());
     }
+
+    @Override
+    public Product getBySefUrl(String sefUrl, String languageCode) {
+        return entityManager.createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
+                "pd.language l LEFT JOIN FETCH p.productImages JOIN FETCH p.category WHERE p.sefUrl = :sefUrl " +
+                "AND l.code = :languageCode", Product.class)
+                .setParameter("sefUrl", sefUrl)
+                .setParameter("languageCode", languageCode)
+                .getSingleResult();
+    }
 }

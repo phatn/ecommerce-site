@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface ProductService {
 
+    ProductDto findBySefUrl(String sefUrl, String languageCode);
+
     List<ProductDto> findNewArrivals(String languageCode);
 
     Page<ProductDto> findByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode);

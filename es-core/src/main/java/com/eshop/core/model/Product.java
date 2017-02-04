@@ -70,7 +70,7 @@ public class Product extends GenericEntity implements Auditable, Serializable {
     private Set<OrderLine> orderLines = new HashSet<>();
 
     // Search engine friendly url
-    @Column(name = "SEF_URL", length = 120)
+    @Column(name = "SEF_URL", length = 120, unique = true)
     private String sefUrl;
 
     public AuditSection getAuditSection() {

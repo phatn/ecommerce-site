@@ -22,6 +22,7 @@ var product_list_price_component_1 = require("./product-list-price/product-list-
 var router_1 = require("@angular/router");
 var breadcrumbs_component_1 = require("../breadcrumbs/breadcrumbs.component");
 var product_list_category_component_1 = require("./product-list-category/product-list-category.component");
+var product_detail_component_1 = require("./product-detail/product-detail.component");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -38,13 +39,15 @@ var ProductModule = (function () {
                 product_list_manufacturer_component_1.ProductListManufacturerComponent,
                 product_list_price_component_1.ProductListPriceComponent,
                 product_list_category_component_1.ProductListCategoryComponent,
+                product_detail_component_1.ProductDetailComponent,
                 breadcrumbs_component_1.BreadcrumbsComponent
             ],
             exports: [
                 product_list_component_1.ProductListComponent,
                 product_list_manufacturer_component_1.ProductListManufacturerComponent,
                 product_list_price_component_1.ProductListPriceComponent,
-                product_list_category_component_1.ProductListCategoryComponent
+                product_list_category_component_1.ProductListCategoryComponent,
+                product_detail_component_1.ProductDetailComponent
             ],
             providers: [
                 product_service_1.ProductService

@@ -35,7 +35,7 @@
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
 				<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
@@ -49,14 +49,13 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 
-	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="ignoreUnresolvablePlaceholders" value="false"/>
 		<property name="locations">
 			<list>
-		    	<value>classpath:database.properties</value>
+				<value>classpath:database.properties</value>
 			</list>
 		</property>
-    </bean>
+	</bean>
 
 </beans>

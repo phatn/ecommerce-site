@@ -30,8 +30,8 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
     @Override
     public Page<Product> getByManufacturerInCategory(String catSefUrl, String manuSefUrl, PageRequest pageRequest, String languageCode) {
         TypedQuery<Product> query = entityManager
-                .createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
-                        "pd.language l LEFT JOIN FETCH p.productImages WHERE p.category.sefUrl = :catSefUrl " +
+                .createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN pd.language l " +
+                        "LEFT JOIN FETCH p.productImages pi WHERE p.category.sefUrl = :catSefUrl " +
                         "AND p.manufacturer.sefUrl = :manuSefUrl AND l.code = :languageCode", Product.class)
                 .setParameter("catSefUrl", catSefUrl)
                 .setParameter("languageCode", languageCode)
@@ -61,7 +61,7 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
         StringBuilder querySt = new StringBuilder();
         querySt.append("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
-                        "pd.language l LEFT JOIN FETCH p.productImages WHERE p.category.sefUrl = :catSefUrl ");
+                "pd.language l LEFT JOIN FETCH p.productImages pi WHERE p.category.sefUrl = :catSefUrl ");
         if(priceRange.getSecondPrice() != null) {
             querySt.append("AND p.price BETWEEN :firstPrice AND :secondPrice AND l.code = :languageCode");
         } else {
@@ -114,8 +114,8 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
         TypedQuery<Product> query = entityManager
                 .createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
-                        "pd.language l LEFT JOIN FETCH p.productImages WHERE p.category.sefUrl = :catSefUrl " +
-                        "AND l.code = :languageCode", Product.class)
+                        "pd.language l LEFT JOIN FETCH p.productImages pi WHERE " +
+                        "p.category.sefUrl = :catSefUrl AND l.code = :languageCode", Product.class)
                 .setParameter("catSefUrl", catSefUrl)
                 .setParameter("languageCode", languageCode);
 
@@ -129,8 +129,8 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
         TypedQuery<Long> countQuery = entityManager
                 .createQuery("SELECT count(DISTINCT p) FROM Product p INNER JOIN  p.descriptions pd INNER JOIN " +
-                        "pd.language l LEFT JOIN p.productImages pi WHERE p.category.sefUrl = :catSefUrl " +
-                        "AND l.code = :languageCode", Long.class)
+                        "pd.language l LEFT JOIN p.productImages pi WHERE " +
+                        "p.category.sefUrl = :catSefUrl AND l.code = :languageCode", Long.class)
                 .setParameter("catSefUrl", catSefUrl)
                 .setParameter("languageCode", languageCode);
 
@@ -140,8 +140,8 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
     @Override
     public Product getBySefUrl(String sefUrl, String languageCode) {
         return entityManager.createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
-                "pd.language l LEFT JOIN FETCH p.productImages JOIN FETCH p.category WHERE p.sefUrl = :sefUrl " +
-                "AND l.code = :languageCode", Product.class)
+                "pd.language l JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi " +
+                "WHERE p.sefUrl = :sefUrl AND l.code = :languageCode", Product.class)
                 .setParameter("sefUrl", sefUrl)
                 .setParameter("languageCode", languageCode)
                 .getSingleResult();

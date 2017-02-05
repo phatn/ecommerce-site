@@ -3,15 +3,16 @@ package com.eshop.core.model;
 /**
  * Created by phatnguyen on 10/9/16.
  *
- * Dimensions
- *  TINY   :  50x50
- *  SMALL  :  114x114
- *  MEDIUM :  263x263
- * 	BIG	   :  409x616
+ * Dimensions (width x height)
+ *  TINY   :  65x65
+ *  SMALL  :  150x150
+ *  MEDIUM :  250x250
+ * 	BIG	   :  450x450
+ * 	XLARGE :  800x800
  */
 public enum ImageSize {
 
-    TINY(50, 50), SMALL(114, 114), MEDIUM(263, 263), BIG(409, 616);
+    TINY(65, 65), SMALL(150, 150), MEDIUM(250, 250), BIG(450, 450), XLARGE(800, 800);
 
     private int width;
 
@@ -22,7 +23,7 @@ public enum ImageSize {
      * @param width width size of image
      * @param height height size of image
      */
-    private ImageSize(int width, int height) {
+    ImageSize(int width, int height) {
         this.width = width;
         this.height = height;
     }

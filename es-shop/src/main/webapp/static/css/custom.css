@@ -1,4 +1,27 @@
-/* your styles go here */
+/* Customize style */
+<!-- *** COMMON ***
+___________________________________________________________________________ -->
+.bor-left {
+    border-left: 1px dotted #ccc;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+<!-- *** COMMON END *** -->
+
+
+<!-- *** NAV-BAR END ***
+____________________________________________________________________________ -->
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+<!-- *** NAV-BAR END *** -->
+
+
+<!-- *** CAROUSEL ***
+___________________________________________________________________________ -->
 .carousel-control.left, .carousel-control.right {
     background-image: none;
 }
@@ -6,15 +29,17 @@
 .home-carousel {
     padding-top: 60px;
     padding-bottom: 20px;
+    min-height: 495px;
 }
 
-.product:hover .buttons {
-    left: 0;
-    display: block;
-    background: rgba(255, 255, 255, 0);
+a.carousel-control {
+    cursor: default;
 }
+<!-- *** CAROUSEL END *** -->
 
 
+<!-- *** PRODUCT ***
+___________________________________________________________________________ -->
 .product {
     border-right: 1px dotted #ccc;
     border-top: 1px dotted #ccc;
@@ -32,24 +57,6 @@
     font-size: 12px;
 }
 
-.products {
-    position: relative;
-    padding-left: 1px;
-    padding-right: 1px;
-}
-
-#heading-breadcrumbs {
-    background: #f4f5f7;
-    padding: 0;
-}
-
-.breadcrumb {
-    text-align: left;
-}
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 .product:hover .image img {
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
@@ -58,27 +65,32 @@
 }
 
 .product:hover {
-    border-bottom: 1px dotted#ccc;
+    border-bottom: 1px dotted #ccc;
 }
-
-.bor-left {
-    border-left: 1px dotted#ccc;
-    width: 1px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .prd-list {
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.home-carousel {
-    min-height: 495px;
+.products {
+    position: relative;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+<!-- *** PRODUCT END *** -->
+
+
+<!-- *** BREADCRUMBS ***
+___________________________________________________________________________ -->
+#heading-breadcrumbs {
+    background: #f4f5f7;
+    padding: 0;
 }
 
-a.carousel-control {
-    cursor: default;
+.breadcrumb {
+    text-align: left;
 }
+<!-- *** BREADCRUMBS END *** -->
+
+
+

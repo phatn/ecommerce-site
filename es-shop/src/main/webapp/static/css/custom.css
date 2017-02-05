@@ -57,6 +57,10 @@
     transform: scale(1, 1);
 }
 
+.product:hover {
+    border-bottom: 1px dotted#ccc;
+}
+
 .bor-left {
     border-left: 1px dotted#ccc;
     width: 1px;
@@ -69,4 +73,12 @@
 .prd-list {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.home-carousel {
+    min-height: 495px;
+}
+
+a.carousel-control {
+    cursor: default;
 }

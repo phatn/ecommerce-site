@@ -20,6 +20,7 @@ var CarouselComponent = (function () {
         core_1.Component({
             selector: 'eshop-carousel',
             templateUrl: 'app/templates/client/carousel/carousel.component.html',
+            styleUrls: ['app/templates/client/carousel/carousel.component.css'],
             providers: [{ provide: ng2_bootstrap_1.CarouselConfig, useValue: { interval: 3000, noPause: true } }]
         }), 
         __metadata('design:paramtypes', [])

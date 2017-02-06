@@ -72,3 +72,9 @@
 a.carousel-control {
     cursor: default;
 }
+
+.affix .navbar-default {
+    -webkit-box-shadow: 0 12px 6px -6px #a5a5a5;
+    -moz-box-shadow: 0 12px 6px -6px #a5a5a5;
+    box-shadow: 0 12px 6px -6px #a5a5a5;
+}

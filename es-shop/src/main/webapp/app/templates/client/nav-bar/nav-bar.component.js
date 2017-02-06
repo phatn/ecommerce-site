@@ -24,6 +24,13 @@ var NavBarComponent = (function () {
             alert('Problem loading categories');
         });
     };
+    NavBarComponent.prototype.ngAfterViewInit = function () {
+        jQuery('#navbar').affix({
+            offset: {
+                top: function () { return 200; }
+            }
+        });
+    };
     NavBarComponent.prototype.sortPriceRanges = function () {
         for (var _i = 0, _a = this.categories; _i < _a.length; _i++) {
             var cat = _a[_i];

@@ -3,6 +3,7 @@ import {Category} from "../../../categories/shared/category.model";
 import {CategoryService} from "../../../categories/shared/category.service";
 import {PriceRange} from "../../../categories/shared/price-range.model";
 
+declare const jQuery:any;
 
 @Component({
     selector: 'eshop-nav-bar',
@@ -24,6 +25,14 @@ export class NavBarComponent implements OnInit {
                 alert('Problem loading categories');
             }
         );
+    }
+
+    ngAfterViewInit() {
+        jQuery('#navbar').affix({
+            offset: {
+                top: function() { return 200; }
+            }
+        });
     }
 
     sortPriceRanges() {

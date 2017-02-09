@@ -27,7 +27,7 @@ var NavBarComponent = (function () {
     NavBarComponent.prototype.ngAfterViewInit = function () {
         jQuery('#navbar').affix({
             offset: {
-                top: function () { return 200; }
+                top: function () { return 300; }
             }
         });
     };

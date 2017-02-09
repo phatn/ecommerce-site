@@ -4,6 +4,7 @@ import com.eshop.core.dto.*;
 import com.eshop.core.model.*;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
+import ma.glasnost.orika.unenhance.HibernateUnenhanceStrategy;
 
 /**
  * Created by phatnguyen on 1/26/17.
@@ -50,7 +51,10 @@ public class ProductMapperFactory {
         if(mapperFactoryWithDetail == null) {
             synchronized (ProductMapperFactory.class) {
                 if(mapperFactoryWithDetail == null) {
-                    mapperFactoryWithDetail = new DefaultMapperFactory.Builder().build();
+                    mapperFactoryWithDetail = new DefaultMapperFactory.Builder().
+                            unenhanceStrategy(new HibernateUnenhanceStrategy()).
+                            build();
+
                     mapperFactoryWithDetail.classMap(Product.class, ProductDto.class)
                             .exclude("attributeValues")
                             .exclude("manufacturer")

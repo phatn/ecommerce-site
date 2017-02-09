@@ -23,6 +23,7 @@ var router_1 = require("@angular/router");
 var breadcrumbs_component_1 = require("../breadcrumbs/breadcrumbs.component");
 var product_list_category_component_1 = require("./product-list-category/product-list-category.component");
 var product_detail_component_1 = require("./product-detail/product-detail.component");
+var gallery_module_1 = require("../gallery/gallery.module");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -32,7 +33,8 @@ var ProductModule = (function () {
                 common_1.CommonModule,
                 forms_1.FormsModule,
                 ng2_bootstrap_1.PaginationModule.forRoot(),
-                router_1.RouterModule
+                router_1.RouterModule,
+                gallery_module_1.GalleryModule
             ],
             declarations: [
                 product_list_component_1.ProductListComponent,

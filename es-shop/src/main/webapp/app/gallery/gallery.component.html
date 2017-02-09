@@ -1,0 +1,3 @@
+<div *ngIf="productImages" class="fotorama" data-auto="false" data-nav="thumbs">
+    <a *ngFor="let productImage of productImages" href="{{productImage.thumbnail}}"><img [src]="productImage.image"></a>
+</div>

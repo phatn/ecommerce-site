@@ -1,9 +1,6 @@
 /**
  * Created by phatnguyen on 1/3/17.
  */
-/**
- * Created by phatnguyen on 1/3/17.
- */
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,6 +8,5 @@ import { Component } from '@angular/core';
     templateUrl: 'app/home/home.component.html'
 })
 export class HomeComponent {
-
 
 }

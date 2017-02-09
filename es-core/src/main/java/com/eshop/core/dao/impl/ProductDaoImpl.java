@@ -2,6 +2,7 @@ package com.eshop.core.dao.impl;
 
 import com.eshop.core.dao.AbstractDao;
 import com.eshop.core.dao.ProductDao;
+import com.eshop.core.model.ImageSize;
 import com.eshop.core.model.PriceRange;
 import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
@@ -139,11 +140,13 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
     @Override
     public Product getBySefUrl(String sefUrl, String languageCode) {
-        return entityManager.createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd INNER JOIN " +
-                "pd.language l JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi " +
+        return entityManager.createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd " +
+                "JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi INNER JOIN pd.language l " +
                 "WHERE p.sefUrl = :sefUrl AND l.code = :languageCode", Product.class)
                 .setParameter("sefUrl", sefUrl)
                 .setParameter("languageCode", languageCode)
                 .getSingleResult();
     }
+
+
 }

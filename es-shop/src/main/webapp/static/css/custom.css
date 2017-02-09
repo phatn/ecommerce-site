@@ -58,10 +58,9 @@
     margin-bottom: 0;
 }
 
-.product .text p.price {
+.product .text p.price, #productMain .price {
     font-size: 15px;
     font-weight: bold;
-    color: #d21212;
 }
 
 .product .text h3 {
@@ -119,4 +118,12 @@ a.carousel-control {
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,.3);
     -moz-box-shadow: 0 0 50px rgba(0,0,0,.3);
     box-shadow: 0 0 50px rgba(0,0,0,.3);
+}
+
+.product > .image img {
+    max-height: 150px;
+}
+
+.fotorama__stage {
+    border: 1px solid #ccc;
 }

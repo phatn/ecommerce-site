@@ -13,13 +13,16 @@ import {RouterModule} from "@angular/router";
 import {BreadcrumbsComponent} from "../breadcrumbs/breadcrumbs.component";
 import {ProductListCategoryComponent} from "./product-list-category/product-list-category.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
+import {GalleryModule} from "../gallery/gallery.module";
+import {GalleryComponent} from "../gallery/gallery.component";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         PaginationModule.forRoot(),
-        RouterModule
+        RouterModule,
+        GalleryModule
     ],
     declarations: [
         ProductListComponent,

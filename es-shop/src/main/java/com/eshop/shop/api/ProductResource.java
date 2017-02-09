@@ -79,9 +79,9 @@ public class ProductResource {
     public Response<List<ProductDto>> getBySefUrl(@RequestParam(name = "lang", defaultValue = "en") String languageCode,
                                                     @PathVariable("prodSefUrl") String prodSefUrl) {
 
-        ProductDto product = productService.findBySefUrl(prodSefUrl, languageCode);
         return new Response.Builder<>(Response.Status.OK)
                 .data(productService.findBySefUrl(prodSefUrl, languageCode))
                 .build();
     }
+
 }

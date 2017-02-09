@@ -15,11 +15,11 @@
 
     <properties>
         <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
-        <hibernate.version>5.0.7.Final</hibernate.version>
+        <hibernate.version>5.2.7.Final</hibernate.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
-        <hibernate-validator.version>5.2.2.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.4.0.Final</hibernate-validator.version>
         <ehcache-core.version>2.6.11</ehcache-core.version>
-        <hibernate-ehcache.version>5.0.7.Final</hibernate-ehcache.version>
+        <hibernate-ehcache.version>5.2.7.Final</hibernate-ehcache.version>
         <javax.el-api.version>2.2.4</javax.el-api.version>
         <c3p0.version>0.9.5.2</c3p0.version>
         <spring-test.version>4.1.6.RELEASE</spring-test.version>

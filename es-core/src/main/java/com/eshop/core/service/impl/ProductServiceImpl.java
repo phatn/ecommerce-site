@@ -4,7 +4,9 @@ import com.eshop.core.dao.PriceRangeDao;
 import com.eshop.core.dao.ProductDao;
 import com.eshop.core.dto.ProductDto;
 import com.eshop.core.mapping.MapperFactoryFacade;
+import com.eshop.core.model.ImageSize;
 import com.eshop.core.model.Product;
+import com.eshop.core.model.ProductImage;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 import com.eshop.core.service.ProductService;
@@ -15,7 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * Created by phatnguyen on 12/31/16.
@@ -66,8 +70,9 @@ public class ProductServiceImpl implements ProductService {
     @Transactional(readOnly = true)
     @Override
     public ProductDto findBySefUrl(String sefUrl, String languageCode) {
-        return toProductDto(productDao.getBySefUrl(sefUrl, languageCode),
-                MapperFactoryFacade.Product.getWithDetail());
+        Product product = productDao.getBySefUrl(sefUrl, languageCode);
+        filterProductImages(product, ImageSize.BIG);
+        return toProductDto(product, MapperFactoryFacade.Product.getWithDetail());
     }
 
     // =========================== Private utility methods =============================
@@ -83,5 +88,18 @@ public class ProductServiceImpl implements ProductService {
         }
 
         return productDtos;
+    }
+
+    private void filterProductImages(Product product, ImageSize... imageSizes) {
+        if(product == null || product.getProductImages() == null) {
+            return;
+        }
+        CopyOnWriteArraySet<ProductImage> productImages = new CopyOnWriteArraySet<>(product.getProductImages());
+        for(ProductImage productImage : productImages) {
+            if(!Arrays.asList(imageSizes).contains(productImage.getImageSize())) {
+                productImages.remove(productImage);
+            }
+        }
+        product.setProductImages(productImages);
     }
 }

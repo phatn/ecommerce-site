@@ -4,13 +4,13 @@
         <div class="product">
             <div class="image" *ngIf="product.productImages?.length > 0">
                 <a routerLink="/product/{{product.sefUrl}}">
-                    <img [src]="product.productImages[0].image" alt="" class="img-responsive image1 center-block">
+                    <img [src]="product.productImages[0].image" alt="" class="center-block">
                 </a>
             </div>
 
             <div class="image" *ngIf="product.productImages?.length == 0">
                 <a routerLink="/product/{{product.sefUrl}}">
-                    <img src="static/upload/images/product/no-image-150x150.jpg" alt="" class="img-responsive image1 center-block">
+                    <img src="static/upload/images/product/no-image-150x150.jpg" alt="" class="center-block">
                 </a>
             </div>
             <!-- /.image -->

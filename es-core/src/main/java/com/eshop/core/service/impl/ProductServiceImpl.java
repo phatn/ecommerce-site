@@ -75,13 +75,13 @@ public class ProductServiceImpl implements ProductService {
         return toProductDto(product, MapperFactoryFacade.Product.getWithDetail());
     }
 
-    // =========================== Private utility methods =============================
-    private ProductDto toProductDto(Product product, MapperFactory mapperFactory){
+    // =========================== Static utility methods =============================
+    public static ProductDto toProductDto(Product product, MapperFactory mapperFactory){
         MapperFacade mapper = mapperFactory.getMapperFacade();
         return mapper.map(product, ProductDto.class);
     }
 
-    private List<ProductDto> toProductDtos(List<Product> products, MapperFactory mapperFactory) {
+    public static List<ProductDto> toProductDtos(List<Product> products, MapperFactory mapperFactory) {
         List<ProductDto> productDtos = new ArrayList<>();
         for(Product product : products) {
             productDtos.add(toProductDto(product, mapperFactory));
@@ -90,16 +90,11 @@ public class ProductServiceImpl implements ProductService {
         return productDtos;
     }
 
-    private void filterProductImages(Product product, ImageSize... imageSizes) {
+    public static void filterProductImages(Product product, ImageSize... imageSizes) {
         if(product == null || product.getProductImages() == null) {
             return;
         }
-        CopyOnWriteArraySet<ProductImage> productImages = new CopyOnWriteArraySet<>(product.getProductImages());
-        for(ProductImage productImage : productImages) {
-            if(!Arrays.asList(imageSizes).contains(productImage.getImageSize())) {
-                productImages.remove(productImage);
-            }
-        }
-        product.setProductImages(productImages);
+
+        product.getProductImages().removeIf(item -> !Arrays.asList(imageSizes).contains(item.getImageSize()));
     }
 }

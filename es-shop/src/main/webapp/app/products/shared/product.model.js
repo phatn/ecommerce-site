@@ -1,6 +1,6 @@
 "use strict";
 var Product = (function () {
-    function Product(id, sku, price, salePrice, sortOrder, descriptions, productImages, sefUrl, newArrivals, category) {
+    function Product(id, sku, price, salePrice, sortOrder, descriptions, productImages, attributes, sefUrl, newArrivals, category) {
         this.id = id;
         this.sku = sku;
         this.price = price;
@@ -8,6 +8,7 @@ var Product = (function () {
         this.sortOrder = sortOrder;
         this.descriptions = descriptions;
         this.productImages = productImages;
+        this.attributes = attributes;
         this.sefUrl = sefUrl;
         this.newArrivals = newArrivals;
         this.category = category;

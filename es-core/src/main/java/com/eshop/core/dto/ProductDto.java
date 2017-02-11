@@ -34,7 +34,7 @@ public class ProductDto {
 
     private List<ProductImageDto> productImages;
 
-    private List<AttributeValueDto> attributeValues;
+    private List<AttributeDto> attributes;
 
     private CategoryDto category;
 
@@ -122,12 +122,12 @@ public class ProductDto {
         this.productImages = productImages;
     }
 
-    public List<AttributeValueDto> getAttributeValues() {
-        return attributeValues;
+    public List<AttributeDto> getAttributes() {
+        return attributes;
     }
 
-    public void setAttributeValues(List<AttributeValueDto> attributeValues) {
-        this.attributeValues = attributeValues;
+    public void setAttributes(List<AttributeDto> attributes) {
+        this.attributes = attributes;
     }
 
     public CategoryDto getCategory() {

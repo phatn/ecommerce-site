@@ -10,7 +10,7 @@
     <persistence-unit name="es-corePU" transaction-type="RESOURCE_LOCAL">
 
         <class>com.eshop.core.model.Attribute</class>
-        <class>com.eshop.core.model.AttributeValue</class>
+        <class>com.eshop.core.model.AttributeDescription</class>
         <class>com.eshop.core.model.Billing</class>
         <class>com.eshop.core.model.Cart</class>
         <class>com.eshop.core.model.CartItem</class>

@@ -55,8 +55,9 @@ public class Product extends GenericEntity implements Auditable, Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "product")
     private Set<ProductImage> productImages = new HashSet<>();
 
-    @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<AttributeValue> attributeValues = new HashSet<>();
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OrderBy("sortOrder ASC")
+    private Set<Attribute> attributes = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "CATEGORY_ID")
@@ -153,12 +154,12 @@ public class Product extends GenericEntity implements Auditable, Serializable {
         this.productImages = productImages;
     }
 
-    public Set<AttributeValue> getAttributeValues() {
-        return attributeValues;
+    public Set<Attribute> getAttributes() {
+        return attributes;
     }
 
-    public void setAttributeValues(Set<AttributeValue> attributeValues) {
-        this.attributeValues = attributeValues;
+    public void setAttributes(Set<Attribute> attributes) {
+        this.attributes = attributes;
     }
 
     public Category getCategory() {

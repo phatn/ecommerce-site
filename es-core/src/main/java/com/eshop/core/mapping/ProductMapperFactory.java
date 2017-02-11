@@ -24,7 +24,7 @@ public class ProductMapperFactory {
                     mapperFactoryWithDes = new DefaultMapperFactory.Builder().build();
                     mapperFactoryWithDes.classMap(Product.class, ProductDto.class)
                             .exclude("category")
-                            .exclude("attributeValues")
+                            .exclude("attributes")
                             .exclude("manufacturer")
                             .exclude("orderLines")
                             .byDefault()
@@ -56,12 +56,22 @@ public class ProductMapperFactory {
                             build();
 
                     mapperFactoryWithDetail.classMap(Product.class, ProductDto.class)
-                            .exclude("attributeValues")
                             .exclude("manufacturer")
                             .exclude("orderLines")
                             .byDefault()
                             .register();
 
+
+                    mapperFactoryWithDetail.classMap(Attribute.class, AttributeDto.class)
+                            .exclude("product")
+                            .byDefault()
+                            .register();
+
+                    mapperFactoryWithDetail.classMap(AttributeDescription.class, AttributeDescriptionDto.class)
+                            .exclude("language")
+                            .exclude("attribute")
+                            .byDefault()
+                            .register();
 
                     mapperFactoryWithDetail.classMap(Category.class, CategoryDto.class)
                             .exclude("categories")

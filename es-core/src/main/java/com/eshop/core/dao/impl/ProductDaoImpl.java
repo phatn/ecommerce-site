@@ -2,13 +2,13 @@ package com.eshop.core.dao.impl;
 
 import com.eshop.core.dao.AbstractDao;
 import com.eshop.core.dao.ProductDao;
-import com.eshop.core.model.ImageSize;
 import com.eshop.core.model.PriceRange;
 import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -140,13 +140,14 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
     @Override
     public Product getBySefUrl(String sefUrl, String languageCode) {
-        return entityManager.createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.descriptions pd " +
-                "JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi INNER JOIN pd.language l " +
-                "WHERE p.sefUrl = :sefUrl AND l.code = :languageCode", Product.class)
+        TypedQuery<Product> q = entityManager.createQuery("SELECT DISTINCT p FROM Product p LEFT JOIN FETCH p.descriptions pd " +
+                "JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi INNER JOIN pd.language l LEFT JOIN FETCH " +
+                "p.attributes pa LEFT JOIN FETCH pa.descriptions pad WHERE p.sefUrl = :sefUrl " +
+                "AND l.code = :languageCode", Product.class)
                 .setParameter("sefUrl", sefUrl)
-                .setParameter("languageCode", languageCode)
-                .getSingleResult();
+                .setParameter("languageCode", languageCode);
+        Product prod = q.getSingleResult();
+        return prod;
     }
-
 
 }

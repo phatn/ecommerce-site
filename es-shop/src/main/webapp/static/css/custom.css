@@ -26,9 +26,6 @@
             -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
         }
 }
-.loading{
-    background-color: #d35400;
-}
 
 .center-div {
     position: absolute;
@@ -126,4 +123,13 @@ a.carousel-control {
 
 .fotorama__stage {
     border: 1px solid #ccc;
+}
+
+.text-center input[type='text'] {
+    width: 30px;
+}
+
+#productMain .price {
+    margin-top: 0;
+    margin-bottom: 20px;
 }

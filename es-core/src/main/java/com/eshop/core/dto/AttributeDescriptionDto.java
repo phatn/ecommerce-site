@@ -2,18 +2,18 @@ package com.eshop.core.dto;
 
 import com.eshop.core.model.common.AuditSection;
 
-import java.util.List;
-
 /**
- * Created by phatnguyen on 1/26/17.
+ * Created by phatnguyen on 2/11/17.
  */
-public class AttributeDto {
+public class AttributeDescriptionDto {
 
     private Long id;
 
-    private Integer sortOrder;
+    private String name;
 
-    private List<AttributeDescriptionDto> descriptions;
+    private String value;
+
+    private Integer sortOrder;
 
     private AuditSection auditSection;
 
@@ -23,6 +23,22 @@ public class AttributeDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public Integer getSortOrder() {
@@ -41,11 +57,4 @@ public class AttributeDto {
         this.auditSection = auditSection;
     }
 
-    public List<AttributeDescriptionDto> getDescriptions() {
-        return descriptions;
-    }
-
-    public void setDescriptions(List<AttributeDescriptionDto> descriptions) {
-        this.descriptions = descriptions;
-    }
 }

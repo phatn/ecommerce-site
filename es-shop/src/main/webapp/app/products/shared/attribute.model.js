@@ -3,9 +3,9 @@
  * Created by phatnguyen on 1/15/17.
  */
 var Attribute = (function () {
-    function Attribute(id, name, sortOrder) {
+    function Attribute(id, descriptions, sortOrder) {
         this.id = id;
-        this.name = name;
+        this.descriptions = descriptions;
         this.sortOrder = sortOrder;
     }
     return Attribute;

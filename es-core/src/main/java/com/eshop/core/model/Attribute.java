@@ -23,18 +23,15 @@ public class Attribute extends GenericEntity implements Auditable, Serializable 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME")
-    private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "LANGUAGE_ID")
-    private Language language;
-
     @Column(name = "SORT_ORDER")
     private Integer sortOrder;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "attribute", orphanRemoval = true)
-    private Set<AttributeValue> attributeValues = new HashSet<>();
+    private Set<AttributeDescription> descriptions = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
 
     @Embedded
     private AuditSection auditSection = new AuditSection();
@@ -55,22 +52,6 @@ public class Attribute extends GenericEntity implements Auditable, Serializable 
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
     public Integer getSortOrder() {
         return sortOrder;
     }
@@ -79,11 +60,19 @@ public class Attribute extends GenericEntity implements Auditable, Serializable 
         this.sortOrder = sortOrder;
     }
 
-    public Set<AttributeValue> getAttributeValues() {
-        return attributeValues;
+    public Set<AttributeDescription> getDescriptions() {
+        return descriptions;
     }
 
-    public void setAttributeValues(Set<AttributeValue> attributeValues) {
-        this.attributeValues = attributeValues;
+    public void setDescriptions(Set<AttributeDescription> descriptions) {
+        this.descriptions = descriptions;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

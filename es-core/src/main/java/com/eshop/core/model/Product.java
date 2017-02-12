@@ -70,6 +70,9 @@ public class Product extends GenericEntity implements Auditable, Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", orphanRemoval = true)
     private Set<OrderLine> orderLines = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    private Set<ProductRelationship> relationships = new HashSet<>();
+
     // Search engine friendly url
     @Column(name = "SEF_URL", length = 120, unique = true)
     private String sefUrl;
@@ -200,6 +203,14 @@ public class Product extends GenericEntity implements Auditable, Serializable {
 
     public void setNewArrivals(Boolean newArrivals) {
         this.newArrivals = newArrivals;
+    }
+
+    public Set<ProductRelationship> getRelationships() {
+        return relationships;
+    }
+
+    public void setRelationships(Set<ProductRelationship> relationships) {
+        this.relationships = relationships;
     }
 
     @Override

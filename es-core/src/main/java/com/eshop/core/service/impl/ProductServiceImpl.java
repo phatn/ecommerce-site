@@ -6,7 +6,6 @@ import com.eshop.core.dto.ProductDto;
 import com.eshop.core.mapping.MapperFactoryFacade;
 import com.eshop.core.model.ImageSize;
 import com.eshop.core.model.Product;
-import com.eshop.core.model.ProductImage;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 import com.eshop.core.service.ProductService;
@@ -75,6 +74,14 @@ public class ProductServiceImpl implements ProductService {
         return toProductDto(product, MapperFactoryFacade.Product.getWithDetail());
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public List<ProductDto> findRelationshipsBySefUrl(String sefUrl, String languageCode) {
+        List<Product> product = productDao.getRelationshipsBySefUrl(sefUrl, languageCode);
+        filterProductsImages(product, ImageSize.SMALL);
+        return toProductDtos(product, MapperFactoryFacade.Product.getWithDetail());
+    }
+
     // =========================== Static utility methods =============================
     public static ProductDto toProductDto(Product product, MapperFactory mapperFactory){
         MapperFacade mapper = mapperFactory.getMapperFacade();
@@ -96,5 +103,15 @@ public class ProductServiceImpl implements ProductService {
         }
 
         product.getProductImages().removeIf(item -> !Arrays.asList(imageSizes).contains(item.getImageSize()));
+    }
+
+    public static void filterProductsImages(List<Product> products, ImageSize... imageSizes) {
+        if (products == null || products.isEmpty()) {
+            return;
+        }
+
+        for (Product product : products) {
+            filterProductImages(product, imageSizes);
+        }
     }
 }

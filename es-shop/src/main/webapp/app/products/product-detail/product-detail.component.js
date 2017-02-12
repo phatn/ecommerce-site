@@ -21,10 +21,22 @@ var ProductDetailComponent = (function () {
     }
     ProductDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params
-            .switchMap(function (params) {
-            return _this.productService.getBySefUrl(params['prodSefUrl']);
-        })
+        this.sub = this.route.params.subscribe(function (params) {
+            if (params['prodSefUrl'] !== undefined) {
+                _this.sefUrl = params['prodSefUrl'];
+                _this.loadProductDetail();
+                _this.loadProductRelationships();
+            }
+        });
+    };
+    ProductDetailComponent.prototype.buildBreadcrumbs = function (catSefUrl) {
+        this.breadcrumbs = [];
+        this.breadcrumbs.push(root_breadcrumb_1.rootBreadCrumb);
+        this.breadcrumbs.push(new breadcrumb_model_1.Breadcrumb("products/category/" + catSefUrl, catSefUrl.replace("-", " ")));
+    };
+    ProductDetailComponent.prototype.loadProductDetail = function () {
+        var _this = this;
+        this.productService.getBySefUrl(this.sefUrl)
             .subscribe(function (data) {
             _this.buildBreadcrumbs(data.category.sefUrl);
             return _this.product = data;
@@ -32,10 +44,13 @@ var ProductDetailComponent = (function () {
             alert('Problem loading product detail');
         });
     };
-    ProductDetailComponent.prototype.buildBreadcrumbs = function (catSefUrl) {
-        this.breadcrumbs = [];
-        this.breadcrumbs.push(root_breadcrumb_1.rootBreadCrumb);
-        this.breadcrumbs.push(new breadcrumb_model_1.Breadcrumb("products/category/" + catSefUrl, catSefUrl.replace("-", " ")));
+    ProductDetailComponent.prototype.loadProductRelationships = function () {
+        var _this = this;
+        this.productService.getRelationshipsBySefUrl(this.sefUrl)
+            .subscribe(function (data) { return _this.relatedProducts = data; }),
+            function (error) {
+                alert('Problem loading product relationships');
+            };
     };
     ProductDetailComponent = __decorate([
         core_1.Component({

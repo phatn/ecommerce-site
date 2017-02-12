@@ -27,6 +27,7 @@ public class ProductMapperFactory {
                             .exclude("attributes")
                             .exclude("manufacturer")
                             .exclude("orderLines")
+                            .exclude("relationships")
                             .byDefault()
                             .register();
 
@@ -60,7 +61,6 @@ public class ProductMapperFactory {
                             .exclude("orderLines")
                             .byDefault()
                             .register();
-
 
                     mapperFactoryWithDetail.classMap(Attribute.class, AttributeDto.class)
                             .exclude("product")

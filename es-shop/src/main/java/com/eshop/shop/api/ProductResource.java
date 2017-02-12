@@ -1,7 +1,6 @@
 package com.eshop.shop.api;
 
 import com.eshop.core.dto.ProductDto;
-import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 import com.eshop.core.service.ProductService;
@@ -76,11 +75,21 @@ public class ProductResource {
     }
 
     @RequestMapping("/{prodSefUrl}")
-    public Response<List<ProductDto>> getBySefUrl(@RequestParam(name = "lang", defaultValue = "en") String languageCode,
+    public Response<ProductDto> getBySefUrl(@RequestParam(name = "lang", defaultValue = "en") String languageCode,
                                                     @PathVariable("prodSefUrl") String prodSefUrl) {
 
         return new Response.Builder<>(Response.Status.OK)
                 .data(productService.findBySefUrl(prodSefUrl, languageCode))
+                .build();
+    }
+
+    @RequestMapping("/{prodSefUrl}/relationships")
+    public Response<List<ProductDto>> getRelationshipBySefUrl(
+            @RequestParam(name = "lang", defaultValue = "en") String languageCode,
+            @PathVariable("prodSefUrl") String prodSefUrl) {
+
+        return new Response.Builder<>(Response.Status.OK)
+                .data(productService.findRelationshipsBySefUrl(prodSefUrl, languageCode))
                 .build();
     }
 

@@ -8,7 +8,6 @@ import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -140,14 +139,25 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
 
     @Override
     public Product getBySefUrl(String sefUrl, String languageCode) {
-        TypedQuery<Product> q = entityManager.createQuery("SELECT DISTINCT p FROM Product p LEFT JOIN FETCH p.descriptions pd " +
+        return entityManager.createQuery("SELECT DISTINCT p FROM Product p LEFT JOIN FETCH p.descriptions pd " +
                 "JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi INNER JOIN pd.language l LEFT JOIN FETCH " +
-                "p.attributes pa LEFT JOIN FETCH pa.descriptions pad WHERE p.sefUrl = :sefUrl " +
-                "AND l.code = :languageCode", Product.class)
+                "p.attributes pa LEFT JOIN FETCH pa.descriptions WHERE p.sefUrl = :sefUrl AND l.code = :languageCode",
+                Product.class)
                 .setParameter("sefUrl", sefUrl)
-                .setParameter("languageCode", languageCode);
-        Product prod = q.getSingleResult();
-        return prod;
+                .setParameter("languageCode", languageCode)
+                .getSingleResult();
+
     }
 
+    @Override
+    public List<Product> getRelationshipsBySefUrl(String sefUrl, String languageCode) {
+        return entityManager.createQuery("SELECT DISTINCT p FROM Product p LEFT JOIN FETCH p.descriptions pd " +
+                        "JOIN FETCH p.category LEFT JOIN FETCH p.productImages pi INNER JOIN pd.language l LEFT JOIN " +
+                        "FETCH p.attributes pa LEFT JOIN FETCH pa.descriptions WHERE p.id IN (SELECT DISTINCT " +
+                        "pr.relatedProduct.id FROM ProductRelationship pr INNER JOIN Product p1 ON p1.id = pr.product.id " +
+                        "WHERE p1.sefUrl = :sefUrl) AND l.code = :languageCode ORDER BY p.sortOrder", Product.class)
+                .setParameter("sefUrl", sefUrl)
+                .setParameter("languageCode", languageCode)
+                .getResultList();
+    }
 }

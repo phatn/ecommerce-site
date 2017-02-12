@@ -24,6 +24,7 @@ var PRODUCT_GET_BY_MANUFACTURER_IN_CATEGORY_URL = 'api/products/category';
 var PRODUCT_GET_BY_PRICE_IN_CATEGORY_URL = 'api/products/category';
 var PRODUCT_GET_BY_CATEGORY_URL = 'api/products/category';
 var PRODUCT_GET_BY_SEF_URL_URL = 'api/products';
+var PRODUCT_GET_RELATIONSHIPS_BY_SEF_URL_URL = 'api/products';
 var ProductService = (function (_super) {
     __extends(ProductService, _super);
     function ProductService(http) {
@@ -57,6 +58,12 @@ var ProductService = (function (_super) {
     ProductService.prototype.getBySefUrl = function (prodSefUrl) {
         var _this = this;
         return this.http.get(PRODUCT_GET_BY_SEF_URL_URL + "/" + prodSefUrl)
+            .map(function (res) { return _this.extractData(res); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.getRelationshipsBySefUrl = function (prodSefUrl) {
+        var _this = this;
+        return this.http.get(PRODUCT_GET_RELATIONSHIPS_BY_SEF_URL_URL + "/" + prodSefUrl + "/relationships")
             .map(function (res) { return _this.extractData(res); })
             .catch(this.handleError);
     };

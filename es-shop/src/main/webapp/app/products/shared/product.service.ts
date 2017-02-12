@@ -14,6 +14,7 @@ const PRODUCT_GET_BY_MANUFACTURER_IN_CATEGORY_URL:string = 'api/products/categor
 const PRODUCT_GET_BY_PRICE_IN_CATEGORY_URL:string = 'api/products/category';
 const PRODUCT_GET_BY_CATEGORY_URL:string = 'api/products/category';
 const PRODUCT_GET_BY_SEF_URL_URL:string = 'api/products';
+const PRODUCT_GET_RELATIONSHIPS_BY_SEF_URL_URL:string = 'api/products';
 
 @Injectable()
 export class ProductService extends BaseService {
@@ -54,4 +55,11 @@ export class ProductService extends BaseService {
             .map(res => this.extractData(res))
             .catch(this.handleError);
     }
+
+    getRelationshipsBySefUrl(prodSefUrl: string): Observable<Product[]> {
+        return this.http.get(`${PRODUCT_GET_RELATIONSHIPS_BY_SEF_URL_URL}/${prodSefUrl}/relationships`)
+            .map(res => this.extractData(res))
+            .catch(this.handleError);
+    }
+
 }

@@ -31,6 +31,7 @@
         <class>com.eshop.core.model.OrderLine</class>
         <class>com.eshop.core.model.OrderStatus</class>
         <class>com.eshop.core.model.Product</class>
+        <class>com.eshop.core.model.ProductRelationship</class>
         <class>com.eshop.core.model.ProductDescription</class>
         <class>com.eshop.core.model.ProductImage</class>
         <class>com.eshop.core.model.User</class>

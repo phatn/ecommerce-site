@@ -169,4 +169,5 @@ public class ProductDto {
     public void setSefUrl(String sefUrl) {
         this.sefUrl = sefUrl;
     }
+
 }

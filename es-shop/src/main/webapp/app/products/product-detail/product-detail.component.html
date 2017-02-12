@@ -55,59 +55,28 @@
                     </p>
                 </div>
 
-                <div class="row">
+                <div class="row" *ngIf="relatedProducts">
                     <div class="col-md-3 col-sm-6">
                         <div class="box text-uppercase">
                             <h3>You may also like these products</h3>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product">
+                    <div class="col-md-3 col-sm-6" *ngFor="let prod of relatedProducts">
+                        <div class="product" style="border: none">
                             <div class="image">
                                 <a href="#">
-                                    <img src="img/product2.jpg" alt="" class="img-responsive image1">
+                                    <img [src]="prod.productImages[0]?.image" alt="" class="center-block">
                                 </a>
                             </div>
                             <div class="text">
-                                <h3>Fur coat</h3>
-                                <p class="price">$143</p>
+                                <h3>{{prod.descriptions[0].name}}</h3>
+                                <p class="price">{{prod.price | currency:'USD':true}}</p>
 
                             </div>
                         </div>
                         <!-- /.product -->
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product">
-                            <div class="image">
-                                <a href="#">
-                                    <img src="img/product3.jpg" alt="" class="img-responsive image1">
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h3>Fur coat</h3>
-                                <p class="price">$143</p>
-                            </div>
-                        </div>
-                        <!-- /.product -->
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product">
-                            <div class="image">
-                                <a href="#">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive image1">
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h3>Fur coat</h3>
-                                <p class="price">$143</p>
-                            </div>
-                        </div>
-                        <!-- /.product -->
-                    </div>
-
                 </div>
 
                 <div class="row">

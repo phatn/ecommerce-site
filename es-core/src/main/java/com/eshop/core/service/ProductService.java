@@ -1,7 +1,6 @@
 package com.eshop.core.service;
 
 import com.eshop.core.dto.ProductDto;
-import com.eshop.core.model.Product;
 import com.eshop.core.model.common.Page;
 import com.eshop.core.model.common.PageRequest;
 
@@ -13,6 +12,8 @@ import java.util.List;
 public interface ProductService {
 
     ProductDto findBySefUrl(String sefUrl, String languageCode);
+
+    List<ProductDto> findRelationshipsBySefUrl(String sefUrl, String languageCode);
 
     List<ProductDto> findNewArrivals(String languageCode);
 

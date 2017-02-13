@@ -6,5 +6,6 @@ export class Attribute {
 
     constructor(public id: number,
                 public descriptions: AttributeDescription[],
-                public sortOrder: number) {}
+                public sortOrder: number,
+                public highlight: boolean) {}
 }

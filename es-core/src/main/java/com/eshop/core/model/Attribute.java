@@ -33,6 +33,9 @@ public class Attribute extends GenericEntity implements Auditable, Serializable 
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
+    @Column(name = "HIGH_LIGHT")
+    private Boolean highlight = false;
+
     @Embedded
     private AuditSection auditSection = new AuditSection();
 
@@ -74,5 +77,13 @@ public class Attribute extends GenericEntity implements Auditable, Serializable 
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Boolean getHighlight() {
+        return highlight;
+    }
+
+    public void setHighlight(Boolean highlight) {
+        this.highlight = highlight;
     }
 }

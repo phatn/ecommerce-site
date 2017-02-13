@@ -5,6 +5,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Breadcrumb} from "../../breadcrumbs/shared/breadcrumb.model";
 import {rootBreadCrumb} from "../../breadcrumbs/shared/root-breadcrumb";
 import {error} from "util";
+import {Attribute} from "../shared/attribute.model";
 
 @Component({
     selector: 'eshop-product-detail',
@@ -35,6 +36,20 @@ export class ProductDetailComponent implements OnInit {
             }
         });
 
+    }
+
+    getHightlightAttributes(): Attribute[] {
+        let attributes: Attribute[] = [];
+        if(!this.product || !this.product.attributes) {
+            return attributes;
+        }
+
+        for(let att of this.product.attributes) {
+            if(att.highlight) {
+                attributes.push(att);
+            }
+        }
+        return attributes;
     }
 
     private buildBreadcrumbs(catSefUrl: string): void {

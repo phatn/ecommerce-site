@@ -14,7 +14,14 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="box">
-                            <p class="lead" style="font-weight: bold">{{product.descriptions[0].name}}</p>
+                            <p class="lead" style="font-weight: bold; margin-bottom: 20px">{{product.descriptions[0].name}}</p>
+                            <div class="product-info" *ngIf="product.attributes">
+                                <ul>
+                                    <li *ngFor="let att of getHightlightAttributes()">
+                                        {{att.descriptions[0].value}}
+                                    </li>
+                                </ul>
+                            </div>
                             <form>
                                 <p *ngIf="product.salePrice" class="price"><del>{{product.salePrice | currency:'USD':true}}</del></p>
                                 <p class="price" style=" color: #d21212">{{product.price | currency:'USD':true}}</p>

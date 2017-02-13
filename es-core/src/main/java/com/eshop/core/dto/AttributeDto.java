@@ -1,6 +1,7 @@
 package com.eshop.core.dto;
 
 import com.eshop.core.model.common.AuditSection;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public class AttributeDto {
     private Integer sortOrder;
 
     private List<AttributeDescriptionDto> descriptions;
+
+    private Boolean highlight;
 
     private AuditSection auditSection;
 
@@ -47,5 +50,13 @@ public class AttributeDto {
 
     public void setDescriptions(List<AttributeDescriptionDto> descriptions) {
         this.descriptions = descriptions;
+    }
+
+    public Boolean getHighlight() {
+        return highlight;
+    }
+
+    public void setHighlight(Boolean highlight) {
+        this.highlight = highlight;
     }
 }

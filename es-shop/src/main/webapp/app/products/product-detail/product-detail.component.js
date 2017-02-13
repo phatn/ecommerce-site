@@ -29,6 +29,19 @@ var ProductDetailComponent = (function () {
             }
         });
     };
+    ProductDetailComponent.prototype.getHightlightAttributes = function () {
+        var attributes = [];
+        if (!this.product || !this.product.attributes) {
+            return attributes;
+        }
+        for (var _i = 0, _a = this.product.attributes; _i < _a.length; _i++) {
+            var att = _a[_i];
+            if (att.highlight) {
+                attributes.push(att);
+            }
+        }
+        return attributes;
+    };
     ProductDetailComponent.prototype.buildBreadcrumbs = function (catSefUrl) {
         this.breadcrumbs = [];
         this.breadcrumbs.push(root_breadcrumb_1.rootBreadCrumb);

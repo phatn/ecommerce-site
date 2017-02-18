@@ -7,7 +7,8 @@ declare const jQuery:any;
 
 @Component({
     selector: 'eshop-nav-bar',
-    templateUrl: 'app/templates/client/nav-bar/nav-bar.component.html'
+    moduleId: module.id,
+    templateUrl: 'nav-bar.component.html'
 })
 export class NavBarComponent implements OnInit {
 

@@ -25,7 +25,8 @@ var GalleryComponent = (function () {
     GalleryComponent = __decorate([
         core_1.Component({
             selector: 'eshop-gallery',
-            templateUrl: 'app/gallery/gallery.component.html'
+            moduleId: module.id,
+            templateUrl: 'gallery.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], GalleryComponent);

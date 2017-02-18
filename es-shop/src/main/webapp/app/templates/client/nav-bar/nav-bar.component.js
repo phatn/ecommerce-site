@@ -48,7 +48,8 @@ var NavBarComponent = (function () {
     NavBarComponent = __decorate([
         core_1.Component({
             selector: 'eshop-nav-bar',
-            templateUrl: 'app/templates/client/nav-bar/nav-bar.component.html'
+            moduleId: module.id,
+            templateUrl: 'nav-bar.component.html'
         }), 
         __metadata('design:paramtypes', [category_service_1.CategoryService])
     ], NavBarComponent);

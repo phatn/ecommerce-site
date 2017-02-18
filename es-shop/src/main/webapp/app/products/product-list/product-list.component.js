@@ -23,7 +23,8 @@ var ProductListComponent = (function () {
     ProductListComponent = __decorate([
         core_1.Component({
             selector: 'eshop-product-list',
-            templateUrl: 'app/products/product-list/product-list.component.html'
+            moduleId: module.id,
+            templateUrl: 'product-list.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ProductListComponent);

@@ -18,7 +18,8 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         core_1.Component({
             selector: 'eshop-footer',
-            templateUrl: 'app/templates/client/footer/footer.component.html'
+            moduleId: module.id,
+            templateUrl: 'footer.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], FooterComponent);

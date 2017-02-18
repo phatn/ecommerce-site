@@ -68,7 +68,8 @@ var ProductDetailComponent = (function () {
     ProductDetailComponent = __decorate([
         core_1.Component({
             selector: 'eshop-product-detail',
-            templateUrl: 'app/products/product-detail/product-detail.component.html'
+            moduleId: module.id,
+            templateUrl: 'product-detail.component.html'
         }), 
         __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute])
     ], ProductDetailComponent);

@@ -13,7 +13,8 @@ import {rootBreadCrumb} from "../../breadcrumbs/shared/root-breadcrumb";
 
 @Component({
     selector: 'eshop-product-list-category',
-    templateUrl: 'app/products/product-list-category/product-list-category.component.html'
+    moduleId: module.id,
+    templateUrl: 'product-list-category.component.html'
 })
 export class ProductListCategoryComponent implements OnInit {
 

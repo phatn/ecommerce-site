@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'eshop-header-top',
-    templateUrl: 'app/templates/client/top/top.component.html'
+    moduleId: module.id,
+    templateUrl: 'top.component.html'
 })
 export class TopComponent {
 

@@ -49,7 +49,6 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 home_product_list_component_1.HomeProductListComponent
             ],
-            providers: [],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

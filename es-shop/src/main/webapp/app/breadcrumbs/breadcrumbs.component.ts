@@ -6,7 +6,8 @@ import {Breadcrumb} from "./shared/breadcrumb.model";
 
 @Component({
     selector: 'eshop-breadcrumbs',
-    templateUrl: 'app/breadcrumbs/breadcrumbs.component.html'
+    moduleId: module.id,
+    templateUrl: 'breadcrumbs.component.html'
 })
 export class BreadcrumbsComponent {
 

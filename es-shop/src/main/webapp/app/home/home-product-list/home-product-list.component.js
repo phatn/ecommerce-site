@@ -43,7 +43,8 @@ var HomeProductListComponent = (function () {
     HomeProductListComponent = __decorate([
         core_1.Component({
             selector: 'eshop-home-product-list',
-            templateUrl: 'app/home/home-product-list/home-product-list.component.html'
+            moduleId: module.id,
+            templateUrl: 'home-product-list.component.html'
         }), 
         __metadata('design:paramtypes', [product_service_1.ProductService])
     ], HomeProductListComponent);

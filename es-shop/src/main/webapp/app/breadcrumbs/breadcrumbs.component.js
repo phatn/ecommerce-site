@@ -22,7 +22,8 @@ var BreadcrumbsComponent = (function () {
     BreadcrumbsComponent = __decorate([
         core_1.Component({
             selector: 'eshop-breadcrumbs',
-            templateUrl: 'app/breadcrumbs/breadcrumbs.component.html'
+            moduleId: module.id,
+            templateUrl: 'breadcrumbs.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], BreadcrumbsComponent);

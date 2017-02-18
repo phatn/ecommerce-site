@@ -59,7 +59,8 @@ var ProductListCategoryComponent = (function () {
     ProductListCategoryComponent = __decorate([
         core_1.Component({
             selector: 'eshop-product-list-category',
-            templateUrl: 'app/products/product-list-category/product-list-category.component.html'
+            moduleId: module.id,
+            templateUrl: 'product-list-category.component.html'
         }), 
         __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute])
     ], ProductListCategoryComponent);

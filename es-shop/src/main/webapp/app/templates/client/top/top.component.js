@@ -18,7 +18,8 @@ var TopComponent = (function () {
     TopComponent = __decorate([
         core_1.Component({
             selector: 'eshop-header-top',
-            templateUrl: 'app/templates/client/top/top.component.html'
+            moduleId: module.id,
+            templateUrl: 'top.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], TopComponent);

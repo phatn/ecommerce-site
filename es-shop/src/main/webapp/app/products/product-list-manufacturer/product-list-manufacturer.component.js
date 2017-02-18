@@ -57,7 +57,8 @@ var ProductListManufacturerComponent = (function () {
     ProductListManufacturerComponent = __decorate([
         core_1.Component({
             selector: 'eshop-product-list-manufacturer',
-            templateUrl: 'app/products/product-list-manufacturer/product-list-manufacturer.component.html'
+            moduleId: module.id,
+            templateUrl: 'product-list-manufacturer.component.html'
         }), 
         __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute])
     ], ProductListManufacturerComponent);

@@ -8,7 +8,8 @@ import { ProductImage } from "../../products/shared/product-image.model";
 
 @Component({
     selector: 'eshop-home-product-list',
-    templateUrl: 'app/home/home-product-list/home-product-list.component.html'
+    moduleId: module.id,
+    templateUrl: 'home-product-list.component.html'
 })
 export class HomeProductListComponent implements OnInit {
 

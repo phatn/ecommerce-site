@@ -18,7 +18,8 @@ var HeaderComponent = (function () {
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'eshop-header',
-            templateUrl: 'app/templates/client/header/header.component.html'
+            moduleId: module.id,
+            templateUrl: 'header.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderComponent);

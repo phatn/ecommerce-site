@@ -59,7 +59,8 @@ var ProductListPriceComponent = (function () {
     ProductListPriceComponent = __decorate([
         core_1.Component({
             selector: 'eshop-product-list-price',
-            templateUrl: 'app/products/product-list-price/product-list-price.component.html'
+            moduleId: module.id,
+            templateUrl: 'product-list-price.component.html'
         }), 
         __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute])
     ], ProductListPriceComponent);

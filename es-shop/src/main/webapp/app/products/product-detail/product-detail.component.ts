@@ -9,7 +9,8 @@ import {Attribute} from "../shared/attribute.model";
 
 @Component({
     selector: 'eshop-product-detail',
-    templateUrl: 'app/products/product-detail/product-detail.component.html'
+    moduleId: module.id,
+    templateUrl: 'product-detail.component.html'
 })
 export class ProductDetailComponent implements OnInit {
 

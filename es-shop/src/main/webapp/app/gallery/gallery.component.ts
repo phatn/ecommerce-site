@@ -8,7 +8,8 @@ declare const jQuery:any;
 
 @Component({
     selector: 'eshop-gallery',
-    templateUrl: 'app/gallery/gallery.component.html'
+    moduleId: module.id,
+    templateUrl: 'gallery.component.html'
 })
 export class GalleryComponent {
 

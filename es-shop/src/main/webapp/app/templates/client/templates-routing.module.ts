@@ -10,6 +10,7 @@ import {ProductListPriceComponent} from "../../products/product-list-price/produ
 import {ProductListManufacturerComponent} from "../../products/product-list-manufacturer/product-list-manufacturer.component";
 import {ProductListCategoryComponent} from "../../products/product-list-category/product-list-category.component";
 import {ProductDetailComponent} from "../../products/product-detail/product-detail.component";
+import {CartDetailComponent} from "../../cart/cart-detail/cart-detail.component";
 
 
 const templatesRoutes: Routes = [
@@ -19,7 +20,8 @@ const templatesRoutes: Routes = [
             { path: 'products/category/:catSefUrl', component: ProductListCategoryComponent},
             { path: 'products/category/:catSefUrl/manufacturer/:manuSefUrl', component: ProductListManufacturerComponent},
             { path: 'products/category/:catSefUrl/price/:name', component: ProductListPriceComponent},
-            { path: 'product/:prodSefUrl', component: ProductDetailComponent}
+            { path: 'product/:prodSefUrl', component: ProductDetailComponent},
+            { path: 'cart', component: CartDetailComponent}
         ]
     }
 ];

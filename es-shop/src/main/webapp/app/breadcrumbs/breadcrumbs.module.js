@@ -26,12 +26,8 @@ var BreadcrumbsModule = (function () {
                 forms_1.FormsModule,
                 router_1.RouterModule
             ],
-            declarations: [
-                breadcrumbs_component_1.BreadcrumbsComponent
-            ],
-            exports: [
-                breadcrumbs_component_1.BreadcrumbsComponent
-            ]
+            declarations: [breadcrumbs_component_1.BreadcrumbsComponent],
+            exports: [breadcrumbs_component_1.BreadcrumbsComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], BreadcrumbsModule);

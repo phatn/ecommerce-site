@@ -15,6 +15,7 @@ import {TopComponent} from "./top/top.component";
 import {TemplatesComponent} from "./templates.component";
 import {RouterModule} from "@angular/router";
 import {CartSummaryComponent} from "../../cart/cart-summary/cart-summary.component";
+import {CartDetailComponent} from "../../cart/cart-detail/cart-detail.component";
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import {CartSummaryComponent} from "../../cart/cart-summary/cart-summary.compone
         FooterComponent,
         CarouselComponent,
         TemplatesComponent,
+        CartDetailComponent,
         CartSummaryComponent
     ],
     exports: [

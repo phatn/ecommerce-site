@@ -23,6 +23,7 @@ var top_component_1 = require("./top/top.component");
 var templates_component_1 = require("./templates.component");
 var router_1 = require("@angular/router");
 var cart_summary_component_1 = require("../../cart/cart-summary/cart-summary.component");
+var cart_detail_component_1 = require("../../cart/cart-detail/cart-detail.component");
 var TemplatesModule = (function () {
     function TemplatesModule() {
     }
@@ -41,6 +42,7 @@ var TemplatesModule = (function () {
                 footer_component_1.FooterComponent,
                 carousel_component_1.CarouselComponent,
                 templates_component_1.TemplatesComponent,
+                cart_detail_component_1.CartDetailComponent,
                 cart_summary_component_1.CartSummaryComponent
             ],
             exports: [

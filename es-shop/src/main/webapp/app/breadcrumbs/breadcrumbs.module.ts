@@ -14,12 +14,8 @@ import {FormsModule} from "@angular/forms";
         FormsModule,
         RouterModule
     ],
-    declarations: [
-        BreadcrumbsComponent
-    ],
-    exports: [
-        BreadcrumbsComponent
-    ]
+    declarations: [BreadcrumbsComponent],
+    exports: [BreadcrumbsComponent]
 })
 export class BreadcrumbsModule {
 

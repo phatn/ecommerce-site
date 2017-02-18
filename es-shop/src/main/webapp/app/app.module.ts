@@ -25,7 +25,8 @@ import {ProductModule} from "./products/product.module";
 import {HomeComponent} from "./home/home.component";
 import {TemplatesRoutingModule} from "./templates/client/templates-routing.module";
 import {Cart} from "./cart/shared/cart.model";
-import {CartSummaryComponent} from "./cart/cart-summary/cart-summary.component";
+import {CartModule} from "./cart/cart.module";
+import {BreadcrumbsComponent} from "./breadcrumbs/breadcrumbs.component";
 
 @NgModule({
     imports: [

@@ -8,6 +8,6 @@
         (empty)
     </span>
 </small>
-<button class="btn bg-inverse btn-cart" [disabled]="cart.itemCount == 0">
+<button (click)="viewCartDetail()" class="btn bg-inverse btn-cart" [disabled]="cart.itemCount == 0">
     <i style="font-size: 25px" class="fa fa-shopping-cart"></i>
 </button>

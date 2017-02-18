@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var cart_model_1 = require("../../cart/shared/cart.model");
 var ProductListComponent = (function () {
-    function ProductListComponent() {
+    function ProductListComponent(cart) {
+        this.cart = cart;
         this.products = [];
     }
-    ProductListComponent.prototype.addToCart = function () {
-        alert("Added to cart");
+    ProductListComponent.prototype.addToCart = function (product) {
+        this.cart.addLine(product);
     };
     __decorate([
         core_1.Input(), 
@@ -26,7 +28,7 @@ var ProductListComponent = (function () {
             moduleId: module.id,
             templateUrl: 'product-list.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [cart_model_1.Cart])
     ], ProductListComponent);
     return ProductListComponent;
 }());

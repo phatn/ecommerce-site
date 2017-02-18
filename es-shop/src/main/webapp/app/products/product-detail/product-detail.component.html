@@ -22,17 +22,17 @@
                                     </li>
                                 </ul>
                             </div>
-                            <form>
-                                <p *ngIf="product.salePrice" class="price"><del>{{product.salePrice | currency:'USD':true}}</del></p>
-                                <p class="price" style=" color: #d21212">{{product.price | currency:'USD':true}}</p>
 
-                                <p class="text-center">
-                                    <input type="text" value="1"/> <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</button>
-                                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
-                                    </button>
-                                </p>
+                            <p *ngIf="product.salePrice" class="price"><del>{{product.salePrice | currency:'USD':true}}</del></p>
+                            <p class="price" style=" color: #d21212">{{product.price | currency:'USD':true}}</p>
 
-                            </form>
+                            <p class="text-center">
+                                <input type="text" value="1"/> <button (click)="addToCart(product)" type="button" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
+                                </button>
+                            </p>
+
+
                         </div>
                     </div>
                 </div>

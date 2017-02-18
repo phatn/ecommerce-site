@@ -6,6 +6,7 @@ import {Breadcrumb} from "../../breadcrumbs/shared/breadcrumb.model";
 import {rootBreadCrumb} from "../../breadcrumbs/shared/root-breadcrumb";
 import {error} from "util";
 import {Attribute} from "../shared/attribute.model";
+import {Cart} from "../../cart/shared/cart.model";
 
 @Component({
     selector: 'eshop-product-detail',
@@ -25,7 +26,8 @@ export class ProductDetailComponent implements OnInit {
     sub: any;
 
     constructor(private productService: ProductService,
-                private route: ActivatedRoute) {}
+                private route: ActivatedRoute,
+                private cart: Cart) {}
 
     ngOnInit(): void {
 
@@ -75,6 +77,10 @@ export class ProductDetailComponent implements OnInit {
             error => {
                 alert('Problem loading product relationships');
             };
+    }
+
+    addToCart(product: Product) {
+        this.cart.addLine(product);
     }
 
 }

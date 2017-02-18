@@ -17,7 +17,7 @@
             <div class="text">
                 <h3><a routerLink="/product/{{product.sefUrl}}">{{product.descriptions[0].name}}</a></h3>
                 <p class="price"><del>{{product.salePrice | currency:'USD':true}}</del> {{product.price | currency:'USD':true}}</p>
-                <p><a (click)="addToCart()" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                <p><a (click)="addToCart(product)" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
             </div>
             <!-- /.text -->
 

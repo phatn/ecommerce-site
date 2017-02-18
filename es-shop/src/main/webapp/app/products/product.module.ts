@@ -14,7 +14,7 @@ import {BreadcrumbsComponent} from "../breadcrumbs/breadcrumbs.component";
 import {ProductListCategoryComponent} from "./product-list-category/product-list-category.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {GalleryModule} from "../gallery/gallery.module";
-import {GalleryComponent} from "../gallery/gallery.component";
+import {Cart} from "../cart/shared/cart.model";
 
 @NgModule({
     imports: [
@@ -40,7 +40,8 @@ import {GalleryComponent} from "../gallery/gallery.component";
         ProductDetailComponent
     ],
     providers: [
-        ProductService
+        ProductService,
+        Cart
     ]
 })
 export class ProductModule {

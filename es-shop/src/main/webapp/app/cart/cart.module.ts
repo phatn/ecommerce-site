@@ -4,9 +4,14 @@
 
 import {NgModule} from '@angular/core';
 import {Cart} from "./shared/cart.model";
+import {CartSummaryComponent} from "./cart-summary/cart-summary.component";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
-    providers: [Cart]
+    providers: [Cart],
+    imports: [CommonModule],
+    declarations: [CartSummaryComponent],
+    exports: [CartSummaryComponent]
 })
 export class CartModule { }

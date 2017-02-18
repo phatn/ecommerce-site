@@ -29,6 +29,7 @@ var templates_module_1 = require("./templates/client/templates.module");
 var product_module_1 = require("./products/product.module");
 var home_component_1 = require("./home/home.component");
 var templates_routing_module_1 = require("./templates/client/templates-routing.module");
+var cart_model_1 = require("./cart/shared/cart.model");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -49,6 +50,7 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 home_product_list_component_1.HomeProductListComponent
             ],
+            providers: [cart_model_1.Cart],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

@@ -14,6 +14,7 @@ import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {TopComponent} from "./top/top.component";
 import {TemplatesComponent} from "./templates.component";
 import {RouterModule} from "@angular/router";
+import {CartSummaryComponent} from "../../cart/cart-summary/cart-summary.component";
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import {RouterModule} from "@angular/router";
         TopComponent,
         FooterComponent,
         CarouselComponent,
-        TemplatesComponent
+        TemplatesComponent,
+        CartSummaryComponent
     ],
     exports: [
         HeaderComponent,

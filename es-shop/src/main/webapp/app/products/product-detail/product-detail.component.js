@@ -13,10 +13,12 @@ var product_service_1 = require("../shared/product.service");
 var router_1 = require("@angular/router");
 var breadcrumb_model_1 = require("../../breadcrumbs/shared/breadcrumb.model");
 var root_breadcrumb_1 = require("../../breadcrumbs/shared/root-breadcrumb");
+var cart_model_1 = require("../../cart/shared/cart.model");
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent(productService, route) {
+    function ProductDetailComponent(productService, route, cart) {
         this.productService = productService;
         this.route = route;
+        this.cart = cart;
         this.breadcrumbs = [];
     }
     ProductDetailComponent.prototype.ngOnInit = function () {
@@ -65,13 +67,16 @@ var ProductDetailComponent = (function () {
                 alert('Problem loading product relationships');
             };
     };
+    ProductDetailComponent.prototype.addToCart = function (product) {
+        this.cart.addLine(product);
+    };
     ProductDetailComponent = __decorate([
         core_1.Component({
             selector: 'eshop-product-detail',
             moduleId: module.id,
             templateUrl: 'product-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute, cart_model_1.Cart])
     ], ProductDetailComponent);
     return ProductDetailComponent;
 }());

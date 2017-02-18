@@ -25,6 +25,7 @@ import {ProductModule} from "./products/product.module";
 import {HomeComponent} from "./home/home.component";
 import {TemplatesRoutingModule} from "./templates/client/templates-routing.module";
 import {Cart} from "./cart/shared/cart.model";
+import {CartSummaryComponent} from "./cart/cart-summary/cart-summary.component";
 
 @NgModule({
     imports: [
@@ -42,6 +43,7 @@ import {Cart} from "./cart/shared/cart.model";
         HomeComponent,
         HomeProductListComponent
     ],
+    providers: [Cart],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

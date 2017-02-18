@@ -24,6 +24,7 @@ var breadcrumbs_component_1 = require("../breadcrumbs/breadcrumbs.component");
 var product_list_category_component_1 = require("./product-list-category/product-list-category.component");
 var product_detail_component_1 = require("./product-detail/product-detail.component");
 var gallery_module_1 = require("../gallery/gallery.module");
+var cart_model_1 = require("../cart/shared/cart.model");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -52,7 +53,8 @@ var ProductModule = (function () {
                 product_detail_component_1.ProductDetailComponent
             ],
             providers: [
-                product_service_1.ProductService
+                product_service_1.ProductService,
+                cart_model_1.Cart
             ]
         }), 
         __metadata('design:paramtypes', [])

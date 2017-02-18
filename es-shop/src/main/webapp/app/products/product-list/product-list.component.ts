@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
 import { Product } from "../shared/product.model";
+import {Cart} from "../../cart/shared/cart.model";
 
 @Component({
     selector: 'eshop-product-list',
@@ -10,8 +11,10 @@ export class ProductListComponent {
 
     @Input() products: Product[] = [];
 
-    addToCart() {
-        alert("Added to cart");
+    constructor(private cart: Cart) {}
+
+    addToCart(product: Product) {
+        this.cart.addLine(product);
     }
 
 }

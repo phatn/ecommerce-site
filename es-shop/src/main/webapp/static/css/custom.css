@@ -133,3 +133,22 @@ a.carousel-control {
     margin-top: 0;
     margin-bottom: 20px;
 }
+
+#top .cart-summary {
+    padding-top: 2px;
+    margin-left: 20px;
+    float: right;
+}
+
+#top button.btn-cart {
+    background: none;
+    padding: 0;
+}
+
+#top div.login, div.contact {
+    padding-top: 5px;
+}
+
+#top .social a {
+    height: auto;
+}

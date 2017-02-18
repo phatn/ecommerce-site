@@ -10,11 +10,11 @@ import {PaginationModule} from 'ng2-bootstrap';
 import {FormsModule} from "@angular/forms";
 import {ProductListPriceComponent} from "./product-list-price/product-list-price.component";
 import {RouterModule} from "@angular/router";
-import {BreadcrumbsComponent} from "../breadcrumbs/breadcrumbs.component";
 import {ProductListCategoryComponent} from "./product-list-category/product-list-category.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {GalleryModule} from "../gallery/gallery.module";
 import {Cart} from "../cart/shared/cart.model";
+import {BreadcrumbsModule} from "../breadcrumbs/breadcrumbs.module";
 
 @NgModule({
     imports: [
@@ -22,15 +22,15 @@ import {Cart} from "../cart/shared/cart.model";
         FormsModule,
         PaginationModule.forRoot(),
         RouterModule,
-        GalleryModule
+        GalleryModule,
+        BreadcrumbsModule
     ],
     declarations: [
         ProductListComponent,
         ProductListManufacturerComponent,
         ProductListPriceComponent,
         ProductListCategoryComponent,
-        ProductDetailComponent,
-        BreadcrumbsComponent
+        ProductDetailComponent
     ],
     exports: [
         ProductListComponent,

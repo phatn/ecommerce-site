@@ -22,8 +22,7 @@ var nav_bar_component_1 = require("./nav-bar/nav-bar.component");
 var top_component_1 = require("./top/top.component");
 var templates_component_1 = require("./templates.component");
 var router_1 = require("@angular/router");
-var cart_summary_component_1 = require("../../cart/cart-summary/cart-summary.component");
-var cart_detail_component_1 = require("../../cart/cart-detail/cart-detail.component");
+var cart_module_1 = require("../../cart/cart.module");
 var TemplatesModule = (function () {
     function TemplatesModule() {
     }
@@ -33,7 +32,8 @@ var TemplatesModule = (function () {
                 common_1.CommonModule,
                 //FormsModule
                 ng2_bootstrap_1.CarouselModule.forRoot(),
-                router_1.RouterModule
+                router_1.RouterModule,
+                cart_module_1.CartModule
             ],
             declarations: [
                 header_component_1.HeaderComponent,
@@ -41,9 +41,7 @@ var TemplatesModule = (function () {
                 top_component_1.TopComponent,
                 footer_component_1.FooterComponent,
                 carousel_component_1.CarouselComponent,
-                templates_component_1.TemplatesComponent,
-                cart_detail_component_1.CartDetailComponent,
-                cart_summary_component_1.CartSummaryComponent
+                templates_component_1.TemplatesComponent
             ],
             exports: [
                 header_component_1.HeaderComponent,

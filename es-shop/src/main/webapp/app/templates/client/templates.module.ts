@@ -16,13 +16,15 @@ import {TemplatesComponent} from "./templates.component";
 import {RouterModule} from "@angular/router";
 import {CartSummaryComponent} from "../../cart/cart-summary/cart-summary.component";
 import {CartDetailComponent} from "../../cart/cart-detail/cart-detail.component";
+import {CartModule} from "../../cart/cart.module";
 
 @NgModule({
     imports: [
         CommonModule,
         //FormsModule
         CarouselModule.forRoot(),
-        RouterModule
+        RouterModule,
+        CartModule
     ],
     declarations: [
         HeaderComponent,
@@ -30,9 +32,7 @@ import {CartDetailComponent} from "../../cart/cart-detail/cart-detail.component"
         TopComponent,
         FooterComponent,
         CarouselComponent,
-        TemplatesComponent,
-        CartDetailComponent,
-        CartSummaryComponent
+        TemplatesComponent
     ],
     exports: [
         HeaderComponent,

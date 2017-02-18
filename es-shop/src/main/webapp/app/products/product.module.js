@@ -20,11 +20,11 @@ var ng2_bootstrap_1 = require('ng2-bootstrap');
 var forms_1 = require("@angular/forms");
 var product_list_price_component_1 = require("./product-list-price/product-list-price.component");
 var router_1 = require("@angular/router");
-var breadcrumbs_component_1 = require("../breadcrumbs/breadcrumbs.component");
 var product_list_category_component_1 = require("./product-list-category/product-list-category.component");
 var product_detail_component_1 = require("./product-detail/product-detail.component");
 var gallery_module_1 = require("../gallery/gallery.module");
 var cart_model_1 = require("../cart/shared/cart.model");
+var breadcrumbs_module_1 = require("../breadcrumbs/breadcrumbs.module");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -35,15 +35,15 @@ var ProductModule = (function () {
                 forms_1.FormsModule,
                 ng2_bootstrap_1.PaginationModule.forRoot(),
                 router_1.RouterModule,
-                gallery_module_1.GalleryModule
+                gallery_module_1.GalleryModule,
+                breadcrumbs_module_1.BreadcrumbsModule
             ],
             declarations: [
                 product_list_component_1.ProductListComponent,
                 product_list_manufacturer_component_1.ProductListManufacturerComponent,
                 product_list_price_component_1.ProductListPriceComponent,
                 product_list_category_component_1.ProductListCategoryComponent,
-                product_detail_component_1.ProductDetailComponent,
-                breadcrumbs_component_1.BreadcrumbsComponent
+                product_detail_component_1.ProductDetailComponent
             ],
             exports: [
                 product_list_component_1.ProductListComponent,

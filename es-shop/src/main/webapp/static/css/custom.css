@@ -152,3 +152,7 @@ a.carousel-control {
 #top .social a {
     height: auto;
 }
+
+a {
+    cursor: pointer;
+}

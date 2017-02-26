@@ -67,8 +67,9 @@ var ProductDetailComponent = (function () {
                 alert('Problem loading product relationships');
             };
     };
-    ProductDetailComponent.prototype.addToCart = function (product) {
-        this.cart.addLine(product);
+    ProductDetailComponent.prototype.addToCart = function (product, quantity) {
+        if (quantity === void 0) { quantity = 1; }
+        this.cart.addLine(product, +quantity);
     };
     ProductDetailComponent = __decorate([
         core_1.Component({

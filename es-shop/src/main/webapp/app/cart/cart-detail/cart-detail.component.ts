@@ -34,6 +34,10 @@ export class CartDetailComponent implements OnInit {
         this.location.back();
     }
 
+    updateQuantity(product, $event) {
+        this.cart.updateQuantity(product, $event);
+    }
+
     private buildBreadcrumbs(): void {
         this.breadcrumbs = [];
         this.breadcrumbs.push(rootBreadCrumb);

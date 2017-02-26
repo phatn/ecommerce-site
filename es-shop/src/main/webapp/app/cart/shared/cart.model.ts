@@ -45,7 +45,7 @@ export class Cart {
         this.cartPrice = 0;
     }
 
-    private recalculate() {
+    recalculate() {
         this.itemCount = 0;
         this.cartPrice = 0;
         this.lines.forEach(l => {

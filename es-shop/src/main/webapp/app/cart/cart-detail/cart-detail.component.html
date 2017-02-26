@@ -36,7 +36,7 @@
                                         <td><a href="#">{{line.product.descriptions[0].name}}</a>
                                         </td>
                                         <td>
-                                            <input type="number" value="{{line.quantity}}" class="form-control">
+                                            <input type="number"  min="1" (ngModelChange)="updateQuantity(line.product, $event)"  [ngModel]="line.quantity" name="quantity" class="form-control">
                                         </td>
                                         <td>{{line.product.price | currency:'USD':true}}</td>
                                         <td *ngIf="!line.product.salePrice">{{0 | currency:'USD':true}}</td>
@@ -63,7 +63,7 @@
                                 <a (click)="continueShopping()" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
                             </div>
                             <div class="pull-right">
-                                <button (click)="updateCart()" class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>
+                                <!--<button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>-->
                                 <button type="submit" class="btn btn-template-main">Proceed to checkout <i class="fa fa-chevron-right"></i>
                                 </button>
                             </div>
@@ -73,61 +73,6 @@
 
                 </div>
                 <!-- /.box -->
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="box text-uppercase">
-                            <h3>You may also like these products</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="product">
-                            <div class="image">
-                                <a href="shop-detail.html">
-                                    <img src="img/product2.jpg" alt="" class="img-responsive image1">
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h3><a href="shop-detail.html">Fur coat</a></h3>
-                                <p class="price">$143</p>
-
-                            </div>
-                        </div>
-                        <!-- /.product -->
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="product">
-                            <div class="image">
-                                <a href="shop-detail.html">
-                                    <img src="img/product3.jpg" alt="" class="img-responsive image1">
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h3><a href="shop-detail.html">Fur coat</a></h3>
-                                <p class="price">$143</p>
-                            </div>
-                        </div>
-                        <!-- /.product -->
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="product">
-                            <div class="image">
-                                <a href="shop-detail.html">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive image1">
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h3><a href="shop-detail.html">Fur coat</a></h3>
-                                <p class="price">$143</p>
-                            </div>
-                        </div>
-                        <!-- /.product -->
-                    </div>
-
-                </div>
 
             </div>
             <!-- /.col-md-9 -->
@@ -144,11 +89,11 @@
                             <tbody>
                             <tr>
                                 <td>Order subtotal</td>
-                                <th>$446.00</th>
+                                <th>{{cart.cartPrice | currency:'USD':true}}</th>
                             </tr>
                             <tr>
                                 <td>Shipping and handling</td>
-                                <th>$10.00</th>
+                                <th>$0.00</th>
                             </tr>
                             <tr>
                                 <td>Tax</td>
@@ -156,33 +101,12 @@
                             </tr>
                             <tr class="total">
                                 <td>Total</td>
-                                <th>$456.00</th>
+                                <th>{{cart.cartPrice | currency:'USD':true}}</th>
                             </tr>
                             </tbody>
                         </table>
                     </div>
 
-                </div>
-
-
-                <div class="box">
-                    <div class="box-header">
-                        <h4>Coupon code</h4>
-                    </div>
-                    <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
-                    <form>
-                        <div class="input-group">
-
-                            <input type="text" class="form-control">
-
-                            <span class="input-group-btn">
-
-					    <button class="btn btn-template-main" type="button"><i class="fa fa-gift"></i></button>
-
-					</span>
-                        </div>
-                        <!-- /input-group -->
-                    </form>
                 </div>
 
             </div>

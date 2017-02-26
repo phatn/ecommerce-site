@@ -79,8 +79,8 @@ export class ProductDetailComponent implements OnInit {
             };
     }
 
-    addToCart(product: Product) {
-        this.cart.addLine(product);
+    addToCart(product: Product, quantity: number = 1) {
+        this.cart.addLine(product, +quantity);
     }
 
 }

@@ -30,6 +30,10 @@ var product_module_1 = require("./products/product.module");
 var home_component_1 = require("./home/home.component");
 var templates_routing_module_1 = require("./templates/client/templates-routing.module");
 var cart_model_1 = require("./cart/shared/cart.model");
+var login_component_1 = require("./login/login.component");
+var checkout_routing_module_1 = require("./checkout/checkout-routing.module");
+var checkout_module_1 = require("./checkout/checkout.module");
+var register_component_1 = require("./resgister/register.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -43,12 +47,16 @@ var AppModule = (function () {
                 templates_module_1.TemplatesModule,
                 product_module_1.ProductModule,
                 category_module_1.CategoryModule,
-                templates_routing_module_1.TemplatesRoutingModule
+                templates_routing_module_1.TemplatesRoutingModule,
+                checkout_routing_module_1.CheckoutRoutingModule,
+                checkout_module_1.CheckoutModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 home_component_1.HomeComponent,
-                home_product_list_component_1.HomeProductListComponent
+                home_product_list_component_1.HomeProductListComponent,
+                login_component_1.LoginComponent,
+                register_component_1.RegisterComponent
             ],
             providers: [cart_model_1.Cart],
             bootstrap: [app_component_1.AppComponent]

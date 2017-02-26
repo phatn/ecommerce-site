@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row" style="margin-top: 10px">
+        <div class="col-md-4 col-md-offset-4">
+            <a routerLink="/" style="cursor: pointer">
+                <img style="height: 40px; width: 121px" src="static/images/eshop.png" alt="Eshop logo" class="center-block">
+            </a>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-4">
+            <div class="box account-box">
+                <h3 class="text-uppercase" style="margin-top:0">New account</h3>
+
+                <form action="customer-orders.html" method="post">
+                    <div class="form-group">
+                        <label for="name-login">Name</label>
+                        <input type="text" class="form-control" id="name-login">
+                    </div>
+                    <div class="form-group">
+                        <label for="email-login">Email</label>
+                        <input type="text" class="form-control" id="email-login">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Password</label>
+                        <input type="password" class="form-control" id="password-login">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login-again">Password again</label>
+                        <input type="password" class="form-control" id="password-login-again">
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-template-main"><i class="fa fa-user-md"></i> Register</button>
+                    </div>
+                </form>
+
+                <hr/>
+                <div class="text-center"><span style="color: #767676; font-weight: normal">Already have an account?</span>&nbsp;<a routerLink="/login" style="cursor: pointer">Login</a></div>
+            </div>
+        </div>
+    </div>
+</div>

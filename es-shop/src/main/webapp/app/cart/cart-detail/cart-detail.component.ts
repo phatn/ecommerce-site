@@ -19,7 +19,8 @@ export class CartDetailComponent implements OnInit {
     breadcrumbs: Breadcrumb[] = [];
 
     constructor(public cart: Cart,
-                private location: Location) {}
+                private location: Location,
+                private router: Router) {}
 
 
     ngOnInit(): void {
@@ -36,6 +37,10 @@ export class CartDetailComponent implements OnInit {
 
     updateQuantity(product, $event) {
         this.cart.updateQuantity(product, $event);
+    }
+
+    checkout() {
+        this.router.navigateByUrl('/checkout');
     }
 
     private buildBreadcrumbs(): void {

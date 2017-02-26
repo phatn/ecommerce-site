@@ -26,6 +26,7 @@
     <jackson-databind.version>2.8.5</jackson-databind.version>
     <orika-core.version>1.5.0</orika-core.version>
     <imgscalr-lib.version>4.2</imgscalr-lib.version>
+    <jjwt.version.version>0.6.0</jjwt.version.version>
     <junit.version>4.12</junit.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -115,6 +116,12 @@
       <groupId>org.imgscalr</groupId>
       <artifactId>imgscalr-lib</artifactId>
       <version>${imgscalr-lib.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt</artifactId>
+      <version>${jjwt.version}</version>
     </dependency>
 
     <!-- JUnit -->

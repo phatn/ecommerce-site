@@ -27,6 +27,10 @@ import {TemplatesRoutingModule} from "./templates/client/templates-routing.modul
 import {Cart} from "./cart/shared/cart.model";
 import {CartModule} from "./cart/cart.module";
 import {BreadcrumbsComponent} from "./breadcrumbs/breadcrumbs.component";
+import {LoginComponent} from "./login/login.component";
+import {CheckoutRoutingModule} from "./checkout/checkout-routing.module";
+import {CheckoutModule} from "./checkout/checkout.module";
+import {RegisterComponent} from "./resgister/register.component";
 
 @NgModule({
     imports: [
@@ -37,12 +41,16 @@ import {BreadcrumbsComponent} from "./breadcrumbs/breadcrumbs.component";
         TemplatesModule,
         ProductModule,
         CategoryModule,
-        TemplatesRoutingModule
+        TemplatesRoutingModule,
+        CheckoutRoutingModule,
+        CheckoutModule
     ],
     declarations: [
         AppComponent,
         HomeComponent,
-        HomeProductListComponent
+        HomeProductListComponent,
+        LoginComponent,
+        RegisterComponent
     ],
     providers: [Cart],
     bootstrap: [AppComponent]

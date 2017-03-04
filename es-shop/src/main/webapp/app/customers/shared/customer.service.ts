@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {BaseService} from "../../shared/base.service";
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
-import {Customer} from "./customer.model";
 
 /**
  * Created by phatnguyen on 2/28/17.
@@ -17,9 +16,9 @@ export class CustomerService extends BaseService {
         super();
     }
 
-    login(customer: Customer): Observable<any> {
+    login(email: string, password: string): Observable<any> {
 
-        return this.http.post(CUSTOMER_LOGIN_URL, JSON.stringify(customer), BaseService.options)
+        return this.http.post(CUSTOMER_LOGIN_URL, {email, password}, BaseService.options)
             .map(res => this.extractBody(res))
             .catch(this.handleError);
     }

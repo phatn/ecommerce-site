@@ -30,12 +30,13 @@ var templates_module_1 = require("./templates/client/templates.module");
 var product_module_1 = require("./products/product.module");
 var home_component_1 = require("./home/home.component");
 var templates_routing_module_1 = require("./templates/client/templates-routing.module");
-var cart_model_1 = require("./cart/shared/cart.model");
 var login_component_1 = require("./login/login.component");
 var checkout_routing_module_1 = require("./checkout/checkout-routing.module");
 var checkout_module_1 = require("./checkout/checkout.module");
 var register_component_1 = require("./resgister/register.component");
 var customer_service_1 = require("./customers/shared/customer.service");
+var order_model_1 = require("./checkout/shared/order.model");
+var cart_model_1 = require("./cart/shared/cart.model");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -60,7 +61,7 @@ var AppModule = (function () {
                 login_component_1.LoginComponent,
                 register_component_1.RegisterComponent
             ],
-            providers: [cart_model_1.Cart, customer_service_1.CustomerService, cookies_service_1.CookieService],
+            providers: [cart_model_1.Cart, customer_service_1.CustomerService, cookies_service_1.CookieService, order_model_1.Order],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

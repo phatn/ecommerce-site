@@ -26,14 +26,13 @@ import {TemplatesModule} from "./templates/client/templates.module";
 import {ProductModule} from "./products/product.module";
 import {HomeComponent} from "./home/home.component";
 import {TemplatesRoutingModule} from "./templates/client/templates-routing.module";
-import {Cart} from "./cart/shared/cart.model";
-import {CartModule} from "./cart/cart.module";
-import {BreadcrumbsComponent} from "./breadcrumbs/breadcrumbs.component";
 import {LoginComponent} from "./login/login.component";
 import {CheckoutRoutingModule} from "./checkout/checkout-routing.module";
 import {CheckoutModule} from "./checkout/checkout.module";
 import {RegisterComponent} from "./resgister/register.component";
 import {CustomerService} from "./customers/shared/customer.service";
+import {Order} from "./checkout/shared/order.model";
+import {Cart} from "./cart/shared/cart.model";
 
 @NgModule({
     imports: [
@@ -55,7 +54,7 @@ import {CustomerService} from "./customers/shared/customer.service";
         LoginComponent,
         RegisterComponent
     ],
-    providers: [Cart, CustomerService, CookieService],
+    providers: [Cart, CustomerService, CookieService, Order],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

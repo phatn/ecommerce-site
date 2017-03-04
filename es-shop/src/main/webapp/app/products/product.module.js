@@ -23,7 +23,6 @@ var router_1 = require("@angular/router");
 var product_list_category_component_1 = require("./product-list-category/product-list-category.component");
 var product_detail_component_1 = require("./product-detail/product-detail.component");
 var gallery_module_1 = require("../gallery/gallery.module");
-var cart_model_1 = require("../cart/shared/cart.model");
 var breadcrumbs_module_1 = require("../breadcrumbs/breadcrumbs.module");
 var ProductModule = (function () {
     function ProductModule() {
@@ -53,8 +52,7 @@ var ProductModule = (function () {
                 product_detail_component_1.ProductDetailComponent
             ],
             providers: [
-                product_service_1.ProductService,
-                cart_model_1.Cart
+                product_service_1.ProductService
             ]
         }), 
         __metadata('design:paramtypes', [])

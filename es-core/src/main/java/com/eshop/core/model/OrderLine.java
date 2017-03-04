@@ -26,7 +26,7 @@ public class OrderLine extends GenericEntity implements Auditable, Serializable 
     private Order order;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
     @Embedded

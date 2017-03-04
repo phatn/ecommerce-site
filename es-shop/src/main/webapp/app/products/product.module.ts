@@ -13,7 +13,6 @@ import {RouterModule} from "@angular/router";
 import {ProductListCategoryComponent} from "./product-list-category/product-list-category.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {GalleryModule} from "../gallery/gallery.module";
-import {Cart} from "../cart/shared/cart.model";
 import {BreadcrumbsModule} from "../breadcrumbs/breadcrumbs.module";
 
 @NgModule({
@@ -40,8 +39,7 @@ import {BreadcrumbsModule} from "../breadcrumbs/breadcrumbs.module";
         ProductDetailComponent
     ],
     providers: [
-        ProductService,
-        Cart
+        ProductService
     ]
 })
 export class ProductModule {

@@ -14,10 +14,11 @@ const checkoutRoutes: Routes = [
     { path: 'checkout', component: CheckoutComponent,
         canActivate: [AuthGuard],
         children: [
-            { path : '', component: AddressComponent},
+            { path : 'address', component: AddressComponent},
             { path: 'delivery-method', component: DeliveryMethodComponent},
             { path: 'payment-method', component: PaymentMethodComponent},
-            { path: 'order-review', component: OrderReviewComponent}
+            { path: 'order-review', component: OrderReviewComponent},
+            { path: '', redirectTo: 'address', pathMatch: 'full' },
         ]
     }
 ];

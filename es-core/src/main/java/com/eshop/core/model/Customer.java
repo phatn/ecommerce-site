@@ -34,11 +34,24 @@ public class Customer extends GenericEntity implements Auditable, Serializable {
     @Column(name = "EMAIL", unique = true)
     private String email;
 
+    @Column(name = "FIRST_NAME")
+    private String firstName;
+
+    @Column(name = "LAST_NAME")
+    private String lastName;
+
     @Column(name = "USER_NAME")
     private String userName;
 
     @Column(name = "COMPANY")
     private String company;
+
+    @Column(name = "ZIP")
+    private String zip;
+
+    @OneToOne
+    @JoinColumn(name = "COUNTRY_ID")
+    private Country country;
 
     @Column(name = "PASSWORD")
     private String password;

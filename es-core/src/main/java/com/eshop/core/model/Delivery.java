@@ -20,14 +20,14 @@ public class Delivery {
     @Column(name = "DELIVERY_ADDRESS")
     private String address;
 
-    @Column(name = "DELIVERY_COMPANY_ADDRESS")
-    private String companyAddress;
-
     @Column(name = "DELIVERY_CITY")
     private String city;
 
     @Column(name = "DELIVERY_PHONE")
     private String phone;
+
+    @Column(name = "DELIVERY_EMAIL")
+    private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DELIVERY_COUNTRY_ID")
@@ -65,14 +65,6 @@ public class Delivery {
         this.address = address;
     }
 
-    public String getCompanyAddress() {
-        return companyAddress;
-    }
-
-    public void setCompanyAddress(String companyAddress) {
-        this.companyAddress = companyAddress;
-    }
-
     public String getCity() {
         return city;
     }
@@ -95,6 +87,14 @@ public class Delivery {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 

@@ -4,7 +4,6 @@
 
 import {Component, OnInit} from "@angular/core";
 import {CustomerService} from "../customers/shared/customer.service";
-import {Customer} from "../customers/shared/customer.model";
 import {CookieService} from 'angular2-cookie/core';
 import {AppSettings} from "../shared/app-settings";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -16,7 +15,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-    customer: Customer = new Customer();
+    email: string;
+
+    password: string;
 
     errorLogin: string;
 
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
     }
     login() {
         this.errorLogin = null;
-        this.customerService.login(this.customer).subscribe(body => {
+        this.customerService.login(this.email, this.password).subscribe(body => {
             if(body.error != null) {
                 this.errorLogin = "Login failed";
             } else if(body.data != null){

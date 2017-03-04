@@ -36,7 +36,7 @@
                                         <td><a href="#">{{line.product.descriptions[0].name}}</a>
                                         </td>
                                         <td>
-                                            <input type="number"  min="1" (ngModelChange)="updateQuantity(line.product, $event)"  [ngModel]="line.quantity" name="quantity" class="form-control">
+                                            <input type="number" min="1" (ngModelChange)="updateQuantity(line.product, $event)" [ngModel]="line.quantity" name="quantity" class="form-control">
                                         </td>
                                         <td>{{line.product.price | currency:'USD':true}}</td>
                                         <td *ngIf="!line.product.salePrice">{{0 | currency:'USD':true}}</td>

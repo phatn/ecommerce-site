@@ -1,21 +1,17 @@
 package com.eshop.shop.api;
 
-import com.eshop.core.dto.CategoryDto;
 import com.eshop.core.dto.CustomerDto;
-import com.eshop.core.model.Customer;
+import com.eshop.core.dto.LoginInput;
 import com.eshop.core.service.CustomerService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.security.Key;
-import java.util.List;
 
 /**
  * Created by phatnguyen on 2/27/17.
@@ -32,9 +28,9 @@ public class CustomerResource {
     private AuthenticationManager authenticationManager;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Response<String> login(@RequestBody CustomerDto customerDto) {
+    public Response<String> login(@RequestBody LoginInput loginInput) {
 
-        CustomerDto customer = customerService.findByEmail(customerDto.getEmail());
+        CustomerDto customer = customerService.findByEmail(loginInput.getEmail());
         if(customer == null) {
             return new Response.Builder<>(Response.Status.ERROR)
                     .error(new Response.Error(1, "Login failed"))

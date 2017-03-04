@@ -36,4 +36,12 @@ public class MapperFactoryFacade {
         }
 
     }
+
+    public static class Customer {
+
+        public static MapperFactory getMapperFactory() {
+            return CustomerMapperFactory.getMapperFactory();
+        }
+
+    }
 }

@@ -10,8 +10,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath:spring/spring-context.xml
-      <!-- /WEB-INF/spring/security-context.xml -->
+      classpath:spring/spring-context.xml, /WEB-INF/spring/security-context.xml
     </param-value>
   </context-param>
 
@@ -28,7 +27,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>
         classpath:spring/spring-context.xml
-        /WEB-INF/spring/servlet-context.xml
+        <!--/WEB-INF/spring/servlet-context.xml-->
       </param-value>
     </init-param>
   </servlet>
@@ -38,7 +37,7 @@
   </servlet-mapping>
 
   <!-- Spring security -->
-  <!-- <filter>
+  <filter>
       <filter-name>springSecurityFilterChain</filter-name>
       <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
   </filter>
@@ -46,9 +45,10 @@
       <filter-name>springSecurityFilterChain</filter-name>
       <url-pattern>/*</url-pattern>
       <dispatcher>REQUEST</dispatcher>
-      apply Spring Security authentication to error-pages
+
+      <!-- Apply Spring Security authentication to error-pages -->
       <dispatcher>ERROR</dispatcher>
-  </filter-mapping> -->
+  </filter-mapping>
 
   <!-- UTF-8 filter -->
   <filter>

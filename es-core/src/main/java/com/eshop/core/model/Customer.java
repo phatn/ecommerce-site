@@ -31,7 +31,7 @@ public class Customer extends GenericEntity implements Auditable, Serializable {
     @Column(name = "DATE_OF_BIRTH")
     private Date dateOfBirth;
 
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
     @Column(name = "USER_NAME")
@@ -42,6 +42,9 @@ public class Customer extends GenericEntity implements Auditable, Serializable {
 
     @Column(name = "PASSWORD")
     private String password;
+
+    @Column(name = "IS_ENABLE")
+    private boolean isEnable;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinTable(name="ES_CUSTOMER_CUSTOMER_ROLE",
@@ -145,5 +148,13 @@ public class Customer extends GenericEntity implements Auditable, Serializable {
     public void setAuditSection(AuditSection auditSection) {
         this.auditSection = auditSection;
 
+    }
+
+    public boolean isEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(boolean enable) {
+        isEnable = enable;
     }
 }

@@ -5,6 +5,8 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 
+import {CookieService} from 'angular2-cookie/services/cookies.service';
+
 // Statics
 import 'rxjs/add/observable/throw';
 
@@ -31,6 +33,7 @@ import {LoginComponent} from "./login/login.component";
 import {CheckoutRoutingModule} from "./checkout/checkout-routing.module";
 import {CheckoutModule} from "./checkout/checkout.module";
 import {RegisterComponent} from "./resgister/register.component";
+import {CustomerService} from "./customers/shared/customer.service";
 
 @NgModule({
     imports: [
@@ -52,7 +55,7 @@ import {RegisterComponent} from "./resgister/register.component";
         LoginComponent,
         RegisterComponent
     ],
-    providers: [Cart],
+    providers: [Cart, CustomerService, CookieService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

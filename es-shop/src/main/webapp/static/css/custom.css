@@ -167,3 +167,7 @@ a {
     padding: 20px;
     margin-top: 20px
 }
+
+.login-error-msg {
+    margin-top: 10px;
+}

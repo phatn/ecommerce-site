@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
+var cookies_service_1 = require('angular2-cookie/services/cookies.service');
 // Statics
 require('rxjs/add/observable/throw');
 // Operators
@@ -34,6 +35,7 @@ var login_component_1 = require("./login/login.component");
 var checkout_routing_module_1 = require("./checkout/checkout-routing.module");
 var checkout_module_1 = require("./checkout/checkout.module");
 var register_component_1 = require("./resgister/register.component");
+var customer_service_1 = require("./customers/shared/customer.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -58,7 +60,7 @@ var AppModule = (function () {
                 login_component_1.LoginComponent,
                 register_component_1.RegisterComponent
             ],
-            providers: [cart_model_1.Cart],
+            providers: [cart_model_1.Cart, customer_service_1.CustomerService, cookies_service_1.CookieService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

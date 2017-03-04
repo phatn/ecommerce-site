@@ -1,0 +1,60 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+         xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan	base-package="com.eshop.shop.security" />
+
+    <!-- JDBC Customer details -->
+    <b:bean id="customerDetailsService"
+                class="com.eshop.shop.security.CustomerDetailsServiceAdapter">
+    </b:bean>
+
+    <!-- JDBC User details -->
+    <!--<b:bean id="userDetailsService"-->
+                <!--class="com.myeshop.web.service.security.UserDetailsServiceAdapter">-->
+    <!--</b:bean>-->
+
+    <!-- pattern="/admin/**" -->
+
+    <http pattern="/customer/**" auto-config="true" use-expressions="true" authentication-manager-ref="customerAuthenticationManager">
+        <remember-me user-service-ref="customerDetailsService"/>
+        <intercept-url pattern="/customer/register"  access="permitAll" />
+        <intercept-url pattern="/customer/checkout"  access="hasRole('ROLE_CUSTOMER')" />
+        <form-login login-page="/login"
+                    login-processing-url="/customer/j_spring_security_check"
+                    default-target-url="/"
+                    authentication-failure-url="/loginfailed"/>
+        <logout logout-success-url="/logout" />
+    </http>
+
+    <!--<http auto-config="true" use-expressions="true" authentication-manager-ref="userAuthenticationManager">-->
+        <!--<remember-me user-service-ref="userDetailsService"/>-->
+        <!--<intercept-url pattern="/admin/**"  access="hasRole('ROLE_ADMIN')" />-->
+        <!--<form-login login-page="/adminLogin"-->
+                    <!--login-processing-url="/admin/j_spring_security_check"-->
+                    <!--default-target-url="/"-->
+                    <!--authentication-failure-url="/adminLoginfailed"/>-->
+        <!--<logout logout-success-url="/logout" />-->
+    <!--</http>-->
+
+    <!--<authentication-manager id="userAuthenticationManager">-->
+        <!--<authentication-provider user-service-ref="userDetailsService">-->
+            <!--<password-encoder hash="bcrypt" />-->
+        <!--</authentication-provider>-->
+    <!--</authentication-manager>-->
+
+    <authentication-manager id="customerAuthenticationManager">
+        <authentication-provider user-service-ref="customerDetailsService">
+            <!--<password-encoder hash="bcrypt" />-->
+        </authentication-provider>
+    </authentication-manager>
+
+
+</b:beans>

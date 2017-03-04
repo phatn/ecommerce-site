@@ -3,22 +3,25 @@
  */
 
 import {Injectable} from '@angular/core';
-import {CanActivate, Router} from '@angular/router';
+import {CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+
+import {CookieService} from 'angular2-cookie/core';
+import {AppSettings} from "../shared/app-settings";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private router: Router) {}
+    constructor(private router: Router,
+                private cookieService: CookieService) {}
 
-    canActivate() {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-        if (localStorage.getItem('currentUser')) {
-            // logged in so return true
+        if(this.cookieService.get(AppSettings.CUSTOMER_JWT_TOKEN_KEY) != undefined) {
             return true;
         }
 
         // not logged in so redirect to login page
-        this.router.navigateByUrl('/login');
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
     }
 }

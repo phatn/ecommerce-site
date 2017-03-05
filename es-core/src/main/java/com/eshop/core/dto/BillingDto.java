@@ -13,8 +13,6 @@ public class BillingDto {
 
     private String address;
 
-    private String companyAddress;
-
     private String city;
 
     private String phone;
@@ -53,14 +51,6 @@ public class BillingDto {
         this.address = address;
     }
 
-    public String getCompanyAddress() {
-        return companyAddress;
-    }
-
-    public void setCompanyAddress(String companyAddress) {
-        this.companyAddress = companyAddress;
-    }
-
     public String getCity() {
         return city;
     }
@@ -84,4 +74,5 @@ public class BillingDto {
     public void setCountry(CountryDto country) {
         this.country = country;
     }
+
 }

@@ -23,7 +23,6 @@ public class CustomerMapperFactory {
                     mapperFactory.classMap(Customer.class, CustomerDto.class)
                             .exclude("customerRoles")
                             .exclude("auditSection")
-                            .exclude("delivery")
                             .exclude("billing")
                             .byDefault()
                             .register();

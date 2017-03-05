@@ -9,4 +9,6 @@ export class AppSettings {
 
     public static ADMIN_JWT_TOKEN_KEY = "ADMIN_JWT_TOKEN";
 
+    public static CUSTOMER = "CUSTOMER";
+
 }

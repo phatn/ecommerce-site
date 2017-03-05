@@ -8,6 +8,7 @@ var AppSettings = (function () {
     AppSettings.PAGE_SIZE = 2;
     AppSettings.CUSTOMER_JWT_TOKEN_KEY = "CUSTOMER_JWT_TOKEN";
     AppSettings.ADMIN_JWT_TOKEN_KEY = "ADMIN_JWT_TOKEN";
+    AppSettings.CUSTOMER = "CUSTOMER";
     return AppSettings;
 }());
 exports.AppSettings = AppSettings;

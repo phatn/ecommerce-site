@@ -1,6 +1,8 @@
 package com.eshop.core.dto;
 
+import com.eshop.core.model.DeliveryMethod;
 import com.eshop.core.model.OrderStatus;
+import com.eshop.core.model.PaymentMethod;
 import com.eshop.core.model.common.AuditSection;
 
 import java.util.List;
@@ -19,8 +21,11 @@ public class OrderDto {
 
     private CustomerDto customer;
 
-    private AuditSection auditSection;
+    private AuditSection auditSection = new AuditSection();
 
+    private DeliveryMethod deliveryMethod;
+
+    private PaymentMethod paymentMethod;
 
     public Long getId() {
         return id;
@@ -60,5 +65,21 @@ public class OrderDto {
 
     public void setAuditSection(AuditSection auditSection) {
         this.auditSection = auditSection;
+    }
+
+    public DeliveryMethod getDeliveryMethod() {
+        return deliveryMethod;
+    }
+
+    public void setDeliveryMethod(DeliveryMethod deliveryMethod) {
+        this.deliveryMethod = deliveryMethod;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

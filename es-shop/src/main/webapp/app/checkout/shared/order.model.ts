@@ -8,14 +8,14 @@ import {OrderLine} from "./order-line.model";
 @Injectable()
 export class Order {
 
-    public name: string;
+    public customer: Customer;
 
-    public customer: Customer = new Customer();
-
-    public orderLines: OrderLine[] = [];
+    public orderLines: OrderLine[];
 
     public deliveryMethod: string;
 
     public paymentMethod: string;
+
+    public orderStatus: string = 'NEW';
 
 }

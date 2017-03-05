@@ -7,6 +7,8 @@ import {CustomerService} from "../customers/shared/customer.service";
 import {CookieService} from 'angular2-cookie/core';
 import {AppSettings} from "../shared/app-settings";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Customer} from "../customers/shared/customer.model";
+import {Order} from "../checkout/shared/order.model";
 
 @Component({
     selector: 'eshop-login',
@@ -23,10 +25,13 @@ export class LoginComponent implements OnInit {
 
     returnUrl: string;
 
+    customer: Customer;
+
     constructor(private customerService: CustomerService,
                 private cookieService: CookieService,
                 private route: ActivatedRoute,
-                private router: Router) {}
+                private router: Router,
+                private order: Order) {}
 
 
     ngOnInit() {
@@ -38,7 +43,8 @@ export class LoginComponent implements OnInit {
             if(body.error != null) {
                 this.errorLogin = "Login failed";
             } else if(body.data != null){
-                this.cookieService.put(AppSettings.CUSTOMER_JWT_TOKEN_KEY, body.data);
+                this.order.customer = body.data.customer;
+                this.cookieService.put(AppSettings.CUSTOMER_JWT_TOKEN_KEY, body.data.jwtToken);
                 this.router.navigate([this.returnUrl]);
             } else {
                 this.errorLogin = "Unknown error";

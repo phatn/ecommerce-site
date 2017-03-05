@@ -8,6 +8,7 @@ import {PaymentMethodComponent} from "./payment-method/payment-method.component"
 import {OrderReviewComponent} from "./order-review/order-review.component";
 import {AuthGuard} from "../core/auth-guard.service";
 import {RouterModule} from "@angular/router";
+import {CheckoutService} from "./shared/checkout.service";
 /**
  * Created by phatnguyen on 2/26/17.
  */
@@ -18,7 +19,7 @@ import {RouterModule} from "@angular/router";
         DeliveryMethodComponent, PaymentMethodComponent,
         OrderReviewComponent],
     exports: [CheckoutComponent],
-    providers: [AuthGuard]
+    providers: [AuthGuard, CheckoutService]
 })
 export class CheckoutModule {
 

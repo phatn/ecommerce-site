@@ -1,5 +1,6 @@
 package com.eshop.core.dto;
 
+
 /**
  * Created by phatnguyen on 1/26/17.
  */
@@ -13,13 +14,17 @@ public class DeliveryDto {
 
     private String address;
 
-    private String companyAddress;
-
     private String city;
 
     private String phone;
 
     private CountryDto country;
+
+    private String email;
+
+    private String zip;
+
+    private String street;
 
     public String getFirstName() {
         return firstName;
@@ -53,14 +58,6 @@ public class DeliveryDto {
         this.address = address;
     }
 
-    public String getCompanyAddress() {
-        return companyAddress;
-    }
-
-    public void setCompanyAddress(String companyAddress) {
-        this.companyAddress = companyAddress;
-    }
-
     public String getCity() {
         return city;
     }
@@ -84,4 +81,29 @@ public class DeliveryDto {
     public void setCountry(CountryDto country) {
         this.country = country;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
 }

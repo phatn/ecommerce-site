@@ -13,7 +13,7 @@ public class OrderLineDto {
 
     private ProductDto product;
 
-    private AuditSection auditSection;
+    private AuditSection auditSection = new AuditSection();
 
     public Long getId() {
         return id;

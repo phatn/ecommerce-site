@@ -34,6 +34,14 @@ public class Order extends GenericEntity implements Auditable, Serializable {
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
 
+    @Column(name = "DELIVERY_METHOD")
+    @Enumerated(value = EnumType.STRING)
+    private DeliveryMethod deliveryMethod;
+
+    @Column(name = "PAYMENT_METHOD")
+    @Enumerated(value = EnumType.STRING)
+    private PaymentMethod paymentMethod;
+
     @Embedded
     private AuditSection auditSection = new AuditSection();
 
@@ -75,5 +83,21 @@ public class Order extends GenericEntity implements Auditable, Serializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public DeliveryMethod getDeliveryMethod() {
+        return deliveryMethod;
+    }
+
+    public void setDeliveryMethod(DeliveryMethod deliveryMethod) {
+        this.deliveryMethod = deliveryMethod;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

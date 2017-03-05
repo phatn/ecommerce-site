@@ -25,6 +25,14 @@ public class CustomerDto {
 
     private String password;
 
+    private String firstName;
+
+    private String lastName;
+
+    private String zip;
+
+    private boolean isEnable;
+
     private List<CustomerRoleDto> customerRoles;
 
     private DeliveryDto delivery;
@@ -119,5 +127,37 @@ public class CustomerDto {
 
     public void setAuditSection(AuditSection auditSection) {
         this.auditSection = auditSection;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public boolean isEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(boolean enable) {
+        isEnable = enable;
     }
 }

@@ -26,8 +26,14 @@ public class Delivery {
     @Column(name = "DELIVERY_PHONE")
     private String phone;
 
+    @Column(name = "DELIVERY_STREET")
+    private String street;
+
     @Column(name = "DELIVERY_EMAIL")
     private String email;
+
+    @Column(name = "DELIVERY_ZIP")
+    private String zip;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DELIVERY_COUNTRY_ID")
@@ -95,6 +101,22 @@ public class Delivery {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 }
 

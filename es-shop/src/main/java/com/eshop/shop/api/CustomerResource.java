@@ -2,7 +2,9 @@ package com.eshop.shop.api;
 
 import com.eshop.core.dto.CustomerDto;
 import com.eshop.core.dto.LoginInput;
+import com.eshop.core.dto.LoginResult;
 import com.eshop.core.service.CustomerService;
+import com.eshop.shop.security.SecretKey;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
@@ -28,7 +30,7 @@ public class CustomerResource {
     private AuthenticationManager authenticationManager;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Response<String> login(@RequestBody LoginInput loginInput) {
+    public Response<LoginResult> login(@RequestBody LoginInput loginInput) {
 
         CustomerDto customer = customerService.findByEmail(loginInput.getEmail());
         if(customer == null) {
@@ -37,14 +39,18 @@ public class CustomerResource {
                     .build();
         }
 
-        Key key = MacProvider.generateKey();
+        Key key = SecretKey.getKey();
 
         String compactJws = Jwts.builder()
                 .setSubject(customer.getEmail())
                 .signWith(SignatureAlgorithm.HS512, key)
                 .compact();
         return new Response.Builder<>(Response.Status.OK)
-                .data(compactJws)
+                .data(new LoginResult(customer, compactJws))
                 .build();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(MacProvider.generateKey());
     }
 }

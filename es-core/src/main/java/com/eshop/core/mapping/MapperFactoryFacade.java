@@ -44,4 +44,15 @@ public class MapperFactoryFacade {
         }
 
     }
+
+    public static class Order {
+
+        public static MapperFactory getMapperFactoryFromOrderDto() {
+            return OrderMapperFactory.getMapperFactoryFromOderDto();
+        }
+
+        public static MapperFactory getMapperFactoryFromOrder() {
+            return OrderMapperFactory.getMapperFactoryFromOder();
+        }
+    }
 }

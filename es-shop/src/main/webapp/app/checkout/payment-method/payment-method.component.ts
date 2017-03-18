@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Order} from "../shared/order.model";
 import {Router} from "@angular/router";
+import {Card} from "../shared/card.model";
 /**
  * Created by phatnguyen on 2/26/17.
  */
@@ -12,10 +13,14 @@ import {Router} from "@angular/router";
 })
 export class PaymentMethodComponent {
 
+    card: Card = new Card();
+
     constructor(private order: Order,
                 private router: Router) {}
 
     toOrderReview() {
+        this.order.card = this.card;
         this.router.navigateByUrl("/checkout/order-review")
     }
+
 }

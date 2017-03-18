@@ -9,6 +9,7 @@ import {OrderReviewComponent} from "./order-review/order-review.component";
 import {AuthGuard} from "../core/auth-guard.service";
 import {RouterModule} from "@angular/router";
 import {CheckoutService} from "./shared/checkout.service";
+import {OrderConfirmationComponent} from "./order-confirmation/order-confirmation.component";
 /**
  * Created by phatnguyen on 2/26/17.
  */
@@ -17,7 +18,7 @@ import {CheckoutService} from "./shared/checkout.service";
     imports: [CommonModule, FormsModule, RouterModule],
     declarations: [CheckoutComponent, AddressComponent,
         DeliveryMethodComponent, PaymentMethodComponent,
-        OrderReviewComponent],
+        OrderReviewComponent, OrderConfirmationComponent],
     exports: [CheckoutComponent],
     providers: [AuthGuard, CheckoutService]
 })

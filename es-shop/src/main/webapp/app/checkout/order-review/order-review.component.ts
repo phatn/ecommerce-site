@@ -1,9 +1,10 @@
-import {Component} from "@angular/core";
+import {Component, NgZone} from "@angular/core";
 import {Order} from "../shared/order.model";
 import {Router} from "@angular/router";
 import {Cart} from "../../cart/shared/cart.model";
 import {CheckoutService} from "../shared/checkout.service";
 import {OrderLine} from "../shared/order-line.model";
+import {ChargeInfo} from "../shared/charge-info.model";
 /**
  * Created by phatnguyen on 2/26/17.
  */
@@ -18,6 +19,7 @@ export class OrderReviewComponent {
     constructor(private order: Order,
                 private router: Router,
                 private cart: Cart,
+                private zone: NgZone,
                 private checkoutService: CheckoutService) {}
 
     placeOrder() {
@@ -28,14 +30,47 @@ export class OrderReviewComponent {
         }
 
         this.order.orderLines = orderLines;
+
         this.checkoutService.placeOrder(this.order).subscribe(
             body => {
                 if(body.data == true) {
-                    alert("Place order successfully");
+                    this.getToken();
                 }
             },error => {
                 alert('Problem place order');
             }
         );
+    }
+
+    getToken() {
+
+        (<any>window).Stripe.card.createToken({
+            number: this.order.card.cardNumber,
+            exp_month: this.order.card.expiryMonth,
+            exp_year: this.order.card.expiryYear,
+            cvc: this.order.card.cvc
+        }, (status: number, response: any) => {
+
+            // Wrapping inside the Angular zone
+            this.zone.run(() => {
+                if (status === 200) {
+                    let chargeInfo = new ChargeInfo(response.id, this.cart.cartPrice, "usd", "Eshop payment");
+                    this.checkoutService.handleCharge(chargeInfo).subscribe(
+                        data => {
+                            if(data == true) {
+                                this.order.reset();
+                                this.cart.reset();
+                                this.router.navigateByUrl("/checkout/order-confirmation")
+                            }
+                        },error => {
+                            alert('Problem Charge');
+                        }
+                    );
+
+                } else {
+                    alert("Error getting token");
+                }
+            });
+        });
     }
 }

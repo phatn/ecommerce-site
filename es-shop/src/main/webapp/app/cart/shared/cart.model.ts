@@ -15,6 +15,12 @@ export class Cart {
 
     public cartPrice: number = 0;
 
+    reset() {
+        this.lines = [];
+        this.itemCount = 0;
+        this.cartPrice = 0;
+    }
+
     addLine(product: Product, quantity: number = 1): void {
         let line = this.lines.find(line => line.product.id == product.id);
         if(line != undefined) {

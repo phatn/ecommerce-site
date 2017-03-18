@@ -28,6 +28,7 @@
     <imgscalr-lib.version>4.2</imgscalr-lib.version>
     <jjwt.version>0.7.0</jjwt.version>
     <junit.version>4.12</junit.version>
+    <stripe-java.version>3.5.0</stripe-java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -122,6 +123,13 @@
       <groupId>io.jsonwebtoken</groupId>
       <artifactId>jjwt</artifactId>
       <version>${jjwt.version}</version>
+    </dependency>
+
+    <!-- Stripe API -->
+    <dependency>
+      <groupId>com.stripe</groupId>
+      <artifactId>stripe-java</artifactId>
+      <version>${stripe-java.version}</version>
     </dependency>
 
     <!-- JUnit -->

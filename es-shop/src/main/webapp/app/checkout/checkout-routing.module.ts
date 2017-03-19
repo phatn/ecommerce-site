@@ -19,7 +19,6 @@ const checkoutRoutes: Routes = [
             { path: 'delivery-method', component: DeliveryMethodComponent},
             { path: 'payment-method', component: PaymentMethodComponent},
             { path: 'order-review', component: OrderReviewComponent},
-            { path: 'order-confirmation', component: OrderConfirmationComponent},
             { path: '', redirectTo: 'address', pathMatch: 'full' },
         ]
     }

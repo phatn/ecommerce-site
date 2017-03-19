@@ -3,7 +3,8 @@
  */
 export class Card {
 
-    constructor(public cardNumber: string = "",
+    constructor(public holderName: string = "",
+                public cardNumber: string = "",
                 public expiryMonth: string = "",
                 public expiryYear: string = "",
                 public cvc: string = "") {}

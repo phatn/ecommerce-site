@@ -34,12 +34,20 @@ export class OrderReviewComponent {
         this.checkoutService.placeOrder(this.order).subscribe(
             body => {
                 if(body.data == true) {
-                    this.getToken();
+                    this.processPayment();
                 }
             },error => {
                 alert('Problem place order');
             }
         );
+    }
+
+    processPayment() {
+        if(this.order.paymentMethod == 'PAYMENT_GATEWAY') {
+            this.getToken();
+        } else {
+            this.gotoOrderConfirm();
+        }
     }
 
     getToken() {
@@ -58,9 +66,7 @@ export class OrderReviewComponent {
                     this.checkoutService.handleCharge(chargeInfo).subscribe(
                         data => {
                             if(data == true) {
-                                this.order.reset();
-                                this.cart.reset();
-                                this.router.navigateByUrl("/checkout/order-confirmation")
+                                this.gotoOrderConfirm();
                             }
                         },error => {
                             alert('Problem Charge');
@@ -72,5 +78,11 @@ export class OrderReviewComponent {
                 }
             });
         });
+    }
+
+    gotoOrderConfirm() {
+        this.order.reset();
+        this.cart.reset();
+        this.router.navigateByUrl("/order-confirmation");
     }
 }

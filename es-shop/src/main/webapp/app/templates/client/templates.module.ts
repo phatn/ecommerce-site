@@ -3,7 +3,6 @@
  */
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-//import { FormsModule }    from '@angular/forms';
 
 
 import {FooterComponent} from "./footer/footer.component";
@@ -14,33 +13,20 @@ import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {TopComponent} from "./top/top.component";
 import {TemplatesComponent} from "./templates.component";
 import {RouterModule} from "@angular/router";
-import {CartSummaryComponent} from "../../cart/cart-summary/cart-summary.component";
-import {CartDetailComponent} from "../../cart/cart-detail/cart-detail.component";
 import {CartModule} from "../../cart/cart.module";
+import {CheckoutModule} from "../../checkout/checkout.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     imports: [
-        CommonModule,
-        //FormsModule
-        CarouselModule.forRoot(),
-        RouterModule,
-        CartModule
+        CommonModule, FormsModule, CarouselModule.forRoot(),
+        RouterModule, CartModule, CheckoutModule
     ],
-    declarations: [
-        HeaderComponent,
-        NavBarComponent,
-        TopComponent,
-        FooterComponent,
-        CarouselComponent,
-        TemplatesComponent
+    declarations: [HeaderComponent, NavBarComponent, TopComponent,
+        FooterComponent, CarouselComponent, TemplatesComponent
     ],
-    exports: [
-        HeaderComponent,
-        NavBarComponent,
-        TopComponent,
-        FooterComponent,
-        CarouselComponent,
-        TemplatesComponent
+    exports: [HeaderComponent, NavBarComponent, TopComponent,
+        FooterComponent, CarouselComponent, TemplatesComponent
     ]
 })
 export class TemplatesModule {

@@ -19,7 +19,7 @@ import {OrderConfirmationComponent} from "./order-confirmation/order-confirmatio
     declarations: [CheckoutComponent, AddressComponent,
         DeliveryMethodComponent, PaymentMethodComponent,
         OrderReviewComponent, OrderConfirmationComponent],
-    exports: [CheckoutComponent],
+    exports: [CheckoutComponent, OrderConfirmationComponent],
     providers: [AuthGuard, CheckoutService]
 })
 export class CheckoutModule {

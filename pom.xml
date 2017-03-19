@@ -29,6 +29,10 @@
     <jjwt.version>0.7.0</jjwt.version>
     <junit.version>4.12</junit.version>
     <stripe-java.version>3.5.0</stripe-java.version>
+    <commons-lang3.version>3.5</commons-lang3.version>
+      <velocity.version>1.7</velocity.version>
+      <javax.mail-api.version>1.5.6</javax.mail-api.version>
+      <mail.version>1.4.7</mail.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -63,6 +67,11 @@
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-taglibs</artifactId>
       <version>${spring.security.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
     </dependency>
 
     <!-- Guava Google's core libraries -->
@@ -125,6 +134,13 @@
       <version>${jjwt.version}</version>
     </dependency>
 
+    <!-- Apache commons lang -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+
     <!-- Stripe API -->
     <dependency>
       <groupId>com.stripe</groupId>
@@ -132,7 +148,24 @@
       <version>${stripe-java.version}</version>
     </dependency>
 
-    <!-- JUnit -->
+      <!--Java Mail -->
+      <dependency>
+          <groupId>javax.mail</groupId>
+          <artifactId>javax.mail-api</artifactId>
+          <version>${javax.mail-api.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>javax.mail</groupId>
+          <artifactId>mail</artifactId>
+          <version>${mail.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.velocity</groupId>
+          <artifactId>velocity</artifactId>
+          <version>${velocity.version}</version>
+      </dependency>
+      <!-- JUnit -->
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>

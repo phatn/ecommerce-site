@@ -20,6 +20,7 @@ var product_list_manufacturer_component_1 = require("../../products/product-list
 var product_list_category_component_1 = require("../../products/product-list-category/product-list-category.component");
 var product_detail_component_1 = require("../../products/product-detail/product-detail.component");
 var cart_detail_component_1 = require("../../cart/cart-detail/cart-detail.component");
+var order_confirmation_component_1 = require("../../checkout/order-confirmation/order-confirmation.component");
 var templatesRoutes = [
     { path: '', component: templates_component_1.TemplatesComponent,
         children: [
@@ -28,7 +29,8 @@ var templatesRoutes = [
             { path: 'products/category/:catSefUrl/manufacturer/:manuSefUrl', component: product_list_manufacturer_component_1.ProductListManufacturerComponent },
             { path: 'products/category/:catSefUrl/price/:name', component: product_list_price_component_1.ProductListPriceComponent },
             { path: 'product/:prodSefUrl', component: product_detail_component_1.ProductDetailComponent },
-            { path: 'cart', component: cart_detail_component_1.CartDetailComponent }
+            { path: 'cart', component: cart_detail_component_1.CartDetailComponent },
+            { path: 'order-confirmation', component: order_confirmation_component_1.OrderConfirmationComponent },
         ]
     }
 ];

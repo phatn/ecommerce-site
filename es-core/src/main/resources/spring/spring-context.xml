@@ -4,6 +4,7 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/tx
@@ -11,11 +12,15 @@
     http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task.xsd">
     
    	<context:annotation-config />
-   	<context:component-scan base-package="com.eshop.core.dao, com.eshop.core.service" />
+   	<context:component-scan base-package="com.eshop.core.dao, com.eshop.core.service,
+   	    com.eshop.core.service.common, com.eshop.core.service.email" />
 
+    <context:property-placeholder location="classpath:database.properties, classpath:email.properties" />
 	<!-- Data Source -->
 	<import resource="classpath:/spring/datasource-c3p0.xml" />
 	
@@ -49,13 +54,48 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="ignoreUnresolvablePlaceholders" value="false"/>
-		<property name="locations">
-			<list>
-				<value>classpath:database.properties</value>
-			</list>
-		</property>
-	</bean>
+	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+		<!--<property name="ignoreUnresolvablePlaceholders" value="false"/>-->
+		<!--<property name="locations">-->
+			<!--<list>-->
+				<!--<value>classpath:database.properties</value>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}" />
+        <property name="port" value="${mail.port}" />
+        <property name="username" value="${mail.username}" />
+        <property name="password" value="${mail.password}" />
+
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">${mail.transport.protocol}</prop>
+                <prop key="mail.smtp.ssl.trust">${mail.smtp.ssl.trust}</prop>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="velocityEngine"
+          class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <task:scheduler id="myScheduler" pool-size="10" />
+
+    <!-- Configure the fixedDealy, fixedRate or cron based schduled tasks -->
+    <task:scheduled-tasks scheduler="myScheduler">
+        <task:scheduled ref="emailSendingService" method="sendEmail"
+                        fixed-delay="${mail.sending.period}" initial-delay="1000" />
+    </task:scheduled-tasks>
 
 </beans>

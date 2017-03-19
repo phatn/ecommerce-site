@@ -11,6 +11,7 @@ import {ProductListManufacturerComponent} from "../../products/product-list-manu
 import {ProductListCategoryComponent} from "../../products/product-list-category/product-list-category.component";
 import {ProductDetailComponent} from "../../products/product-detail/product-detail.component";
 import {CartDetailComponent} from "../../cart/cart-detail/cart-detail.component";
+import {OrderConfirmationComponent} from "../../checkout/order-confirmation/order-confirmation.component";
 
 
 const templatesRoutes: Routes = [
@@ -21,7 +22,8 @@ const templatesRoutes: Routes = [
             { path: 'products/category/:catSefUrl/manufacturer/:manuSefUrl', component: ProductListManufacturerComponent},
             { path: 'products/category/:catSefUrl/price/:name', component: ProductListPriceComponent},
             { path: 'product/:prodSefUrl', component: ProductDetailComponent},
-            { path: 'cart', component: CartDetailComponent}
+            { path: 'cart', component: CartDetailComponent},
+            { path: 'order-confirmation', component: OrderConfirmationComponent},
         ]
     }
 ];

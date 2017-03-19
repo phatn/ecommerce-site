@@ -1,0 +1,10 @@
+<h2>Dear ${customerName},</h2>
+<h2>Thank you for placing an order with EShop.</h2>
+<h2>Your order number is: <a href="http://localhost:8080">${orderNumber}</a></h2>
+<h2>We know that you are super keen to get your order ASAP and that is why we will try to fulfil
+    orders as quickly as we can.</h2>
+<h2>If you have any question please feel free to contact us <a href="http://localhost:8080/contact">here</a></h2>
+<h2>
+    EShop<br/>
+    Customer Service Team
+</h2>

@@ -38,6 +38,7 @@
         <class>com.eshop.core.model.UserPermission</class>
         <class>com.eshop.core.model.UserRole</class>
         <class>com.eshop.core.model.PriceRange</class>
+        <class>com.eshop.core.model.Email</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
     </persistence-unit>

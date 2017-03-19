@@ -13,7 +13,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-//import { FormsModule }    from '@angular/forms';
 var footer_component_1 = require("./footer/footer.component");
 var carousel_component_1 = require("./carousel/carousel.component");
 var ng2_bootstrap_1 = require('ng2-bootstrap');
@@ -23,33 +22,22 @@ var top_component_1 = require("./top/top.component");
 var templates_component_1 = require("./templates.component");
 var router_1 = require("@angular/router");
 var cart_module_1 = require("../../cart/cart.module");
+var checkout_module_1 = require("../../checkout/checkout.module");
+var forms_1 = require("@angular/forms");
 var TemplatesModule = (function () {
     function TemplatesModule() {
     }
     TemplatesModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule,
-                //FormsModule
-                ng2_bootstrap_1.CarouselModule.forRoot(),
-                router_1.RouterModule,
-                cart_module_1.CartModule
+                common_1.CommonModule, forms_1.FormsModule, ng2_bootstrap_1.CarouselModule.forRoot(),
+                router_1.RouterModule, cart_module_1.CartModule, checkout_module_1.CheckoutModule
             ],
-            declarations: [
-                header_component_1.HeaderComponent,
-                nav_bar_component_1.NavBarComponent,
-                top_component_1.TopComponent,
-                footer_component_1.FooterComponent,
-                carousel_component_1.CarouselComponent,
-                templates_component_1.TemplatesComponent
+            declarations: [header_component_1.HeaderComponent, nav_bar_component_1.NavBarComponent, top_component_1.TopComponent,
+                footer_component_1.FooterComponent, carousel_component_1.CarouselComponent, templates_component_1.TemplatesComponent
             ],
-            exports: [
-                header_component_1.HeaderComponent,
-                nav_bar_component_1.NavBarComponent,
-                top_component_1.TopComponent,
-                footer_component_1.FooterComponent,
-                carousel_component_1.CarouselComponent,
-                templates_component_1.TemplatesComponent
+            exports: [header_component_1.HeaderComponent, nav_bar_component_1.NavBarComponent, top_component_1.TopComponent,
+                footer_component_1.FooterComponent, carousel_component_1.CarouselComponent, templates_component_1.TemplatesComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

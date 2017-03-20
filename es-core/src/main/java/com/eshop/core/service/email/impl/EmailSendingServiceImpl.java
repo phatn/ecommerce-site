@@ -64,6 +64,7 @@ public class EmailSendingServiceImpl implements EmailSendingService {
         return new MimeMessagePreparator() {
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
+                message.setSubject(email.getSubject());
                 message.setTo(email.getRecipient());
                 message.setFrom("myeshopvn@gmail.com");
                 String text = VelocityEngineUtils.mergeTemplateIntoString(

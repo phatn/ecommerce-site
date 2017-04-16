@@ -1,0 +1,1 @@
+{"version":3,"file":"order-confirmation.component.js","sourceRoot":"","sources":["order-confirmation.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAwB,eAAe,CAAC,CAAA;AACxC;;GAEG;AAOH;IAAA;IAEA,CAAC;IAPD;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,mCAAmC;YAC7C,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,WAAW,EAAE,mCAAmC;SACnD,CAAC;;kCAAA;IAGF,iCAAC;AAAD,CAAC,AAFD,IAEC;AAFY,kCAA0B,6BAEtC,CAAA"}

@@ -1,7 +1,6 @@
 package com.eshop.core.dto;
 
 import com.eshop.core.model.common.AuditSection;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.List;
 

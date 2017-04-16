@@ -78,9 +78,9 @@
 .breadcrumb {
     text-align: left;
 }
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
+/*.dropdown:hover .dropdown-menu {*/
+    /*display: block;*/
+/*}*/
 
 .product:hover .image img {
     -webkit-transform: scale(1, 1);

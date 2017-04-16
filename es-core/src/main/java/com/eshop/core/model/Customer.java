@@ -202,4 +202,5 @@ public class Customer extends GenericEntity implements Auditable, Serializable {
     public void setCountry(Country country) {
         this.country = country;
     }
+
 }

@@ -95,7 +95,7 @@
     <!-- Configure the fixedDealy, fixedRate or cron based schduled tasks -->
     <task:scheduled-tasks scheduler="myScheduler">
         <task:scheduled ref="emailSendingService" method="sendEmail"
-                        fixed-delay="${mail.sending.period}" initial-delay="1000" />
+                        fixed-delay="${mail.sending.period}00" initial-delay="1000" />
     </task:scheduled-tasks>
 
 </beans>
